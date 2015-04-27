@@ -29,3 +29,6 @@ RUN opam install core -y -v
 RUN opam install menhir -y -v
 RUN opam install omake -y -v
 RUN opam install ucorelib -y -v
+
+ENV PATH /root/.opam/system/bin:$PATH
+
