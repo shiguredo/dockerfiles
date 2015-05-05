@@ -10,17 +10,17 @@ RUN yum -y install tar perl gcc glibc-devel make ncurses-devel openssl-devel; yu
 RUN curl -sSL "http://download.basho.co.jp.cs-ap-e2.ycloud.jp/otp/download/otp_src_${OTP_VERSION}.tar.gz"
 | tar -v -C /usr/local/src -xz 
 
-WORKDIR /usr/local/src/otp_src_${OTP_VERSION}
-
 RUN cd /usr/local/src/otp_src_${OTP_VERSION}
     && ./configure --prefix=/opt/erlang-${OTP_VERSION} \
-                --enable-kernel-poll \
-                --enable-hipe \
-                --enable-dirty-schedulers \
-                --enable-smp-support \
-                --enable-m64-build \
-                --without-javac \
-                --disable-vm-probes \
-                --disable-megaco-flex-scanner-lineno \
-                --disable-megaco-reentrant-flex-scanner \
+                   --enable-kernel-poll \
+                   --enable-hipe \
+                   --enable-dirty-schedulers \
+                   --enable-smp-support \
+                   --enable-m64-build \
+                   --without-javac \
+                   --disable-vm-probes \
+                   --disable-megaco-flex-scanner-lineno \
+                   --disable-megaco-reentrant-flex-scanner \
     && make; make install
+
+ENV PATH /opt/erlang-${OTP_VERSION}/bin:$PATH
