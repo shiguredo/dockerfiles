@@ -1,12 +1,16 @@
-FROM centos:6.6
+FROM ubuntu:14.04
 
 MAINTAINER NAKAI Ryosuke <nakai@shiguredo.jp>
 
 ENV OCAML_VERSION 4.01.0
 ENV OPAM_VERSION 1.2.1
 
-RUN yum -y update; yum clean all
-RUN yum -y install git tar gcc-c++ m4 bzip2 patch make unzip; yum clean all
+ADD sources.list /etc/apt/sources.list
+
+RUN apt-get update
+RUN apt-get upgrade -y
+RUN apt-get install build-essential git unzip bzip2 tar curl m4 -y
+RUN apt-get clean && rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 
 RUN curl -sSL "http://caml.inria.fr/pub/distrib/ocaml-4.01/ocaml-4.01.0.tar.gz" \
     | tar -v -C /usr/local/src -xz
