@@ -2,7 +2,7 @@ FROM ubuntu:14.04
 
 MAINTAINER NAKAI Ryosuke <nakai@shiguredo.jp>
 
-ENV OCAML_VERSION 4.01.0
+ENV OCAML_VERSION 4.02.1
 ENV OPAM_VERSION 1.2.1
 
 ADD sources.list /etc/apt/sources.list
@@ -12,9 +12,9 @@ RUN apt-get upgrade -y
 RUN apt-get install build-essential git unzip bzip2 tar curl m4 -y
 RUN apt-get clean && rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 
-RUN curl -sSL "http://caml.inria.fr/pub/distrib/ocaml-4.01/ocaml-4.01.0.tar.gz" \
+RUN curl -sSL "http://caml.inria.fr/pub/distrib/ocaml-4.02/ocaml-4.02.1.tar.gz" \
     | tar -v -C /usr/local/src -xz
-RUN cd /usr/local/src/ocaml-4.01.0 \
+RUN cd /usr/local/src/ocaml-4.02.1 \
     && ./configure \
     && make world.opt \
     && make install

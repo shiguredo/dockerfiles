@@ -2,15 +2,15 @@ FROM centos:6.6
 
 MAINTAINER NAKAI Ryosuke <nakai@shiguredo.jp>
 
-ENV OCAML_VERSION 4.01.0
+ENV OCAML_VERSION 4.02.1
 ENV OPAM_VERSION 1.2.1
 
 RUN yum -y update; yum clean all
 RUN yum -y install git tar gcc-c++ m4 bzip2 patch make unzip; yum clean all
 
-RUN curl -sSL "http://caml.inria.fr/pub/distrib/ocaml-4.01/ocaml-4.01.0.tar.gz" \
+RUN curl -sSL "http://caml.inria.fr/pub/distrib/ocaml-4.02/ocaml-4.02.1.tar.gz" \
     | tar -v -C /usr/local/src -xz
-RUN cd /usr/local/src/ocaml-4.01.0 \
+RUN cd /usr/local/src/ocaml-4.02.1 \
     && ./configure \
     && make world.opt \
     && make install
