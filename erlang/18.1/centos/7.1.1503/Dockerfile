@@ -1,16 +1,16 @@
 FROM centos:7.1.1503
 
-MAINTAINER NAKAI Ryosuke <nakai@shiguredo.jp>
+MAINTAINER Seizan Shimazaki <shimazaki@shiguredo.jp>
 
-ENV OTP_VERSION 17.5
+ENV OTP_VERSION 18.1
 
 RUN yum -y update; yum clean all
 RUN yum -y install tar perl gcc glibc-devel make ncurses-devel openssl-devel; yum clean all
 
-RUN curl -sSL "http://download.basho.co.jp.cs-ap-e2.ycloud.jp/otp/download/otp_src_${OTP_VERSION}.tar.gz"
-| tar -v -C /usr/local/src -xz 
+RUN curl -sSL "http://www.erlang.org/download/otp_src_${OTP_VERSION}.tar.gz" \
+    | tar -v -C /usr/local/src -xz
 
-RUN cd /usr/local/src/otp_src_${OTP_VERSION}
+RUN cd /usr/local/src/otp_src_${OTP_VERSION} \
     && ./configure --prefix=/opt/erlang-${OTP_VERSION} \
                    --enable-kernel-poll \
                    --enable-hipe \
