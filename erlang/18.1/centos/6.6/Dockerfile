@@ -12,7 +12,7 @@ RUN curl -sSL "http://www.erlang.org/download/otp_src_${OTP_VERSION}.tar.gz" \
     | tar -v -C /usr/local/src -xz
 
 RUN cd /usr/local/src/otp_src_${OTP_VERSION} \
-    && ./configure --prefix=/opt/erlang/${OTP_VERSION} \
+    && ./configure --prefix=/opt/erlang-${OTP_VERSION} \
                    --enable-kernel-poll \
                    --enable-hipe \
                    --enable-dirty-schedulers \
