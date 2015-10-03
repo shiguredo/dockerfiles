@@ -1,5 +1,7 @@
 FROM ubuntu:14.04
 
+# As reference: https://gist.github.com/hilios/6dfb40bf6b716ac97619
+
 RUN apt-get update
 RUN apt-get upgrade -y
 # Install libwebsockets
