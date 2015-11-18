@@ -8,6 +8,7 @@ ENV OTP_VERSION 18.1.4
 RUN yum -y update \
   && yum clean all \
   && yum -y install \
+         git \
          gcc \
          autoconf \
          glibc-devel \
