@@ -1,0 +1,4 @@
+deb http://jp.archive.ubuntu.com/ubuntu trusty main restricted
+deb-src http://jp.archive.ubuntu.com/ubuntu trusty main restricted
+deb http://jp.archive.ubuntu.com/ubuntu trusty-updates main restricted
+deb-src http://jp.archive.ubuntu.com/ubuntu trusty-updates main restricted
