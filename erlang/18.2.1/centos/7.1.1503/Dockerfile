@@ -21,6 +21,9 @@ RUN cd /usr/local/src/otp_src_${OTP_VERSION} \
                    --disable-vm-probes \
                    --disable-megaco-flex-scanner-lineno \
                    --disable-megaco-reentrant-flex-scanner \
-    && make; make install
+    && make \
+    && make install \
+    && cd .. \
+    && rm -rf otp_src_${OTP_VERSION}
 
 ENV PATH /opt/erlang-${OTP_VERSION}/bin:$PATH
