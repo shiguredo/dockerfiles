@@ -1,6 +1,5 @@
 FROM ubuntu:16.04
 
-MAINTAINER Seizan Shimazaki <shimazaki@shiguredo.jp>
 MAINTAINER NAKAI Ryosuke <nakai@shiguredo.jp>
 
 ENV OTP_VERSION 18.2.1
