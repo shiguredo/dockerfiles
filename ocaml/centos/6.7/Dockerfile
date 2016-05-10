@@ -25,7 +25,7 @@ RUN cd /usr/local/src/opam-full-${OPAM_VERSION} \
     && make install
 
 RUN opam init
-RUN opam install core.111.13.00 -y
+RUN opam install core.113.24.01 -y
 RUN opam install menhir.20151112 -y
 RUN opam install omake.0.9.8.6-0.rc1 -y
 RUN opam install ucorelib.0.0.2 -y
