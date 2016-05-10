@@ -2,7 +2,7 @@ FROM centos:6.7
 
 MAINTAINER NAKAI Ryosuke <nakai@shiguredo.jp>
 
-ENV OCAML_VERSION 4.01.0
+ENV OCAML_VERSION 4.02.3
 ENV OPAM_VERSION 1.2.2
 
 RUN yum -y update; yum clean all
@@ -26,8 +26,8 @@ RUN cd /usr/local/src/opam-full-${OPAM_VERSION} \
 
 RUN opam init
 RUN opam install core.111.13.00 -y
-RUN opam install menhir -y
-RUN opam install omake -y
-RUN opam install ucorelib -y
+RUN opam install menhir.20151112 -y
+RUN opam install omake.0.9.8.6-0.rc1 -y
+RUN opam install ucorelib.0.0.2 -y
 
 ENV PATH /root/.opam/system/bin:$PATH
