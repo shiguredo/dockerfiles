@@ -25,10 +25,9 @@ RUN cd /usr/local/src/opam-full-${OPAM_VERSION} \
     && make install
 
 RUN opam init
-RUN opam install core -y
+RUN opam install core.111.13.00 -y
 RUN opam install menhir -y
 RUN opam install omake -y
 RUN opam install ucorelib -y
 
 ENV PATH /root/.opam/system/bin:$PATH
-
