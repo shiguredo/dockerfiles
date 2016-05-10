@@ -8,7 +8,7 @@ ENV OPAM_VERSION 1.2.2
 RUN yum -y update; yum clean all
 RUN yum -y install git tar gcc-c++ m4 bzip2 patch make unzip ncurses-devel; yum clean all
 
-RUN curl -sSL "http://caml.inria.fr/pub/distrib/ocaml-4.01/ocaml-4.01.0.tar.gz" \
+RUN curl -sSL "http://caml.inria.fr/pub/distrib/ocaml-4.02/ocaml-4.02.3.tar.gz" \
     | tar -v -C /usr/local/src -xz
 RUN cd /usr/local/src/ocaml-${OCAML_VERSION} \
     && ./configure \
