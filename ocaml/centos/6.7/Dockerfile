@@ -2,13 +2,13 @@ FROM centos:6.7
 
 MAINTAINER NAKAI Ryosuke <nakai@shiguredo.jp>
 
-ENV OCAML_VERSION 4.02.3
+ENV OCAML_VERSION 4.03.0
 ENV OPAM_VERSION 1.2.2
 
 RUN yum -y update; yum clean all
 RUN yum -y install git tar gcc-c++ m4 bzip2 patch make unzip ncurses-devel; yum clean all
 
-RUN curl -sSL "http://caml.inria.fr/pub/distrib/ocaml-4.02/ocaml-4.02.3.tar.gz" \
+RUN curl -sSL "http://caml.inria.fr/pub/distrib/ocaml-4.03/ocaml-4.03.0.tar.gz" \
     | tar -v -C /usr/local/src -xz
 RUN cd /usr/local/src/ocaml-${OCAML_VERSION} \
     && ./configure \
@@ -25,8 +25,8 @@ RUN cd /usr/local/src/opam-full-${OPAM_VERSION} \
     && make install
 
 RUN opam init
-RUN opam install core.113.24.01 -y
-RUN opam install menhir.20151112 -y
+RUN opam install core.113.33.02+4.03 -y
+RUN opam install menhir.20160504 -y
 RUN opam install omake.0.9.8.6-0.rc1 -y
 RUN opam install ucorelib.0.0.2 -y
 
