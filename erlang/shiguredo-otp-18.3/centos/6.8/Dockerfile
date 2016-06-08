@@ -1,4 +1,4 @@
-FROM centos:6.7
+FROM centos:6.8
 
 MAINTAINER NAKAI Ryosuke <nakai@shiguredo.jp>
 
