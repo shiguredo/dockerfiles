@@ -1,15 +1,14 @@
 FROM ubuntu:16.04
 
+MAINTAINER Seizan Shimazaki <shimazaki@shiguredo.jp>
 MAINTAINER NAKAI Ryosuke <nakai@shiguredo.jp>
 
-ENV OTP_VERSION 18.3
+ENV OTP_VERSION 19.0
 
 ADD sources.list /etc/apt/sources.list
 
 RUN apt-get update \
   && apt-get install -y \
-         autoconf \
-         git \
          build-essential \
          curl \
          libssl-dev \
@@ -17,16 +16,16 @@ RUN apt-get update \
   && apt-get clean \
   && rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 
-RUN cd /usr/local/src \
-  && git clone -b shiguredo-otp-${OTP_VERSION} https://github.com/shiguredo/otp.git \
-  && cd /usr/local/src/otp \
-  && ./otp_build autoconf \
-  && ./configure --prefix=/opt/shiguredo-otp-${OTP_VERSION} \
+RUN curl -sSL "http://erlang.shiguredo.jp/otp_src_${OTP_VERSION}.tar.gz" \
+    | tar -v -C /usr/local/src -xz
+  && cd /usr/local/src/otp_src_${OTP_VERSION} \
+  && ./configure --prefix=/opt/erlang-${OTP_VERSION} \
                  --enable-kernel-poll \
                  --enable-hipe \
                  --enable-dirty-schedulers \
                  --enable-smp-support \
                  --enable-m64-build \
+                 --enable-sharing-preserving \
                  --without-javac \
                  --disable-vm-probes \
                  --disable-megaco-flex-scanner-lineno \
@@ -34,8 +33,8 @@ RUN cd /usr/local/src \
   && make \
   && make install \
   && cd .. \
-  && rm -rf otp
+  && rm -rf otp_src_${OTP_VERSION}
 
-ENV PATH /opt/shiguredo-otp-${OTP_VERSION}/bin:$PATH
+ENV PATH /opt/erlang-${OTP_VERSION}/bin:$PATH
 
 WORKDIR /

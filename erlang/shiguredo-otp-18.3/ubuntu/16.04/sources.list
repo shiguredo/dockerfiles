@@ -1,4 +1,0 @@
-deb http://archive.ubuntu.com/ubuntu xenial main restricted
-deb-src http://archive.ubuntu.com/ubuntu xenial main restricted
-deb http://archive.ubuntu.com/ubuntu xenial-updates main restricted
-deb-src http://archive.ubuntu.com/ubuntu xenial-updates main restricted
