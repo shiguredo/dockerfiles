@@ -21,7 +21,6 @@ RUN cd /usr/local/src \
   && git clone -b OTP-${OTP_VERSION} https://github.com/erlang/otp.git \
   && cd /usr/local/src/otp \
   && ./otp_build autoconf \
-  && cd /usr/local/src/otp_src_${OTP_VERSION} \
   && ./configure --prefix=/opt/erlang-${OTP_VERSION} \
                  --enable-kernel-poll \
                  --enable-hipe \
