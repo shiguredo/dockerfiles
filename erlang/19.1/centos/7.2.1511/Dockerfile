@@ -1,9 +1,8 @@
 FROM centos:7.2.1511
 
-MAINTAINER Seizan Shimazaki <shimazaki@shiguredo.jp>
 MAINTAINER NAKAI Ryosuke <nakai@shiguredo.jp>
 
-ENV OTP_VERSION 19.0
+ENV OTP_VERSION 19.1
 
 RUN yum -y update; yum clean all
 RUN yum -y install tar perl gcc glibc-devel make ncurses-devel openssl-devel; yum clean all

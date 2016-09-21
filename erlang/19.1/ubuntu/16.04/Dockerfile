@@ -1,9 +1,8 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 
-MAINTAINER Seizan Shimazaki <shimazaki@shiguredo.jp>
 MAINTAINER NAKAI Ryosuke <nakai@shiguredo.jp>
 
-ENV OTP_VERSION 19.0
+ENV OTP_VERSION 19.1
 
 ADD sources.list /etc/apt/sources.list
 
