@@ -1,22 +1,21 @@
-FROM centos:7.2.1511
+FROM ubuntu:16.04
 
 MAINTAINER NAKAI Ryosuke <nakai@shiguredo.jp>
 
-ENV OTP_VERSION 19.1.1
+ENV OTP_VERSION 19.1.2
 
-RUN yum -y update \
-  && yum clean all \
-  && yum -y install \
-         git \
-         gcc \
+ADD sources.list /etc/apt/sources.list
+
+RUN apt-get update \
+  && apt-get install -y \
          autoconf \
-         glibc-devel \
-         make \
-         ncurses-devel \
-         openssl-devel \
-         perl \
-         tar \
-  && yum clean all
+         git \
+         build-essential \
+         curl \
+         libssl-dev \
+         ncurses-dev \
+  && apt-get clean \
+  && rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 
 RUN cd /usr/local/src \
   && git clone -b OTP-${OTP_VERSION} https://github.com/erlang/otp.git \
@@ -36,7 +35,7 @@ RUN cd /usr/local/src \
   && make \
   && make install \
   && cd .. \
-  && rm -rf otp
+  && rm -rf otp_src_${OTP_VERSION}
 
 ENV PATH /opt/erlang-${OTP_VERSION}/bin:$PATH
 
