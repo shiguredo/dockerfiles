@@ -2,7 +2,7 @@ FROM ubuntu:14.04
 
 MAINTAINER NAKAI Ryosuke <nakai@shiguredo.jp>
 
-ENV OTP_VERSION 19.1.2
+ENV OTP_VERSION 19.1.3
 
 ADD sources.list /etc/apt/sources.list
 
