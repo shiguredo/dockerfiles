@@ -2,7 +2,7 @@ FROM centos:7.2.1511
 
 MAINTAINER NAKAI Ryosuke <nakai@shiguredo.jp>
 
-ENV OTP_VERSION 19.1.4
+ENV OTP_VERSION 19.1.6
 
 RUN yum -y update \
   && yum clean all \
@@ -29,6 +29,7 @@ RUN cd /usr/local/src \
                  --enable-smp-support \
                  --enable-m64-build \
                  --enable-sharing-preserving \
+                 --enable-native-libs \
                  --without-javac \
                  --disable-vm-probes \
                  --disable-megaco-flex-scanner-lineno \
