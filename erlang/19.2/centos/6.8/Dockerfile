@@ -1,11 +1,20 @@
-FROM centos:7.2.1511
+FROM centos:6.8
 
 MAINTAINER NAKAI Ryosuke <nakai@shiguredo.jp>
 
-ENV OTP_VERSION 19.1
+ENV OTP_VERSION 19.2
 
-RUN yum -y update; yum clean all
-RUN yum -y install tar perl gcc glibc-devel make ncurses-devel openssl-devel; yum clean all
+RUN yum -y update \
+  && yum clean all \
+  && yum -y install \
+         gcc \
+         glibc-devel \
+         make \
+         ncurses-devel \
+         openssl-devel \
+         perl \
+         tar \
+  && yum clean all
 
 RUN curl -sSL "http://erlang.shiguredo.jp/otp_src_${OTP_VERSION}.tar.gz" \
     | tar -v -C /usr/local/src -xz
