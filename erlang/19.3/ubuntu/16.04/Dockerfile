@@ -1,18 +1,18 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 
 MAINTAINER NAKAI Ryosuke <nakai@shiguredo.jp>
 
-ENV OTP_VERSION 19.2
+ENV OTP_VERSION 19.3
 
 ADD sources.list /etc/apt/sources.list
 
-RUN apt-get update \
-  && apt-get install -y \
+RUN apt update \
+  && apt install -y \
          build-essential \
          curl \
          libssl-dev \
          ncurses-dev \
-  && apt-get clean \
+  && apt clean \
   && rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 
 RUN curl -sSL "http://erlang.shiguredo.jp/otp_src_${OTP_VERSION}.tar.gz" \
