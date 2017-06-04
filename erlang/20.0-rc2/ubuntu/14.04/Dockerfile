@@ -36,7 +36,7 @@ RUN cd /usr/local/src \
   && make \
   && make install \
   && cd .. \
-  && rm -rf otp_src_${OTP_VERSION}
+  && rm -rf /usr/local/src/opt
 
 ENV PATH /opt/erlang-${OTP_VERSION}/bin:$PATH
 
