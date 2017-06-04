@@ -1,16 +1,4 @@
-deb http://archive.ubuntu.com/ubuntu/ xenial main restricted
-deb-src http://archive.ubuntu.com/ubuntu/ xenial main restricted
-
-deb http://archive.ubuntu.com/ubuntu/ xenial-updates main restricted
-deb-src http://archive.ubuntu.com/ubuntu/ xenial-updates main restricted
-
-deb http://archive.ubuntu.com/ubuntu/ xenial universe
-deb-src http://archive.ubuntu.com/ubuntu/ xenial universe
-deb http://archive.ubuntu.com/ubuntu/ xenial-updates universe
-deb-src http://archive.ubuntu.com/ubuntu/ xenial-updates universe
-
-
-deb http://archive.ubuntu.com/ubuntu/ xenial-security main restricted
-deb-src http://archive.ubuntu.com/ubuntu/ xenial-security main restricted
-deb http://archive.ubuntu.com/ubuntu/ xenial-security universe
-deb-src http://archive.ubuntu.com/ubuntu/ xenial-security universe
+deb http://jp.archive.ubuntu.com/ubuntu xenial main restricted
+deb-src http://jp.archive.ubuntu.com/ubuntu xenial main restricted
+deb http://jp.archive.ubuntu.com/ubuntu xenial-updates main restricted
+deb-src http://jp.archive.ubuntu.com/ubuntu xenial-updates main restricted
