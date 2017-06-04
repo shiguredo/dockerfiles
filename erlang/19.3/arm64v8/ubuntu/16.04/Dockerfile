@@ -4,8 +4,6 @@ MAINTAINER NAKAI Ryosuke <nakai@shiguredo.jp>
 
 ENV OTP_VERSION 19.3
 
-ADD sources.list /etc/apt/sources.list
-
 RUN apt update \
   && apt install -y \
          build-essential \
