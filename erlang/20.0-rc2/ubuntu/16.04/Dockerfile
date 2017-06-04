@@ -2,7 +2,7 @@ FROM ubuntu:16.04
 
 MAINTAINER NAKAI Ryosuke <nakai@shiguredo.jp>
 
-ENV OTP_VERSION 20.0-rc1
+ENV OTP_VERSION 20.0-rc2
 
 ADD sources.list /etc/apt/sources.list
 
@@ -25,6 +25,7 @@ RUN cd /usr/local/src \
                  --enable-kernel-poll \
                  --enable-hipe \
                  --enable-dirty-schedulers \
+                 --enable-lock-counter \
                  --enable-smp-support \
                  --enable-m64-build \
                  --enable-sharing-preserving \
