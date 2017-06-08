@@ -1,8 +1,8 @@
-FROM centos:6.9
+FROM centos:7.3.1611
 
 MAINTAINER NAKAI Ryosuke <nakai@shiguredo.jp>
 
-ENV OTP_VERSION 19.3.5
+ENV OTP_VERSION 19.3.6
 
 RUN yum -y update \
   && yum clean all \
