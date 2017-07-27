@@ -2,7 +2,7 @@ FROM ubuntu:16.04
 
 MAINTAINER NAKAI Ryosuke <nakai@shiguredo.jp>
 
-ENV OTP_VERSION 20.0.1
+ENV OTP_VERSION 20.0.2
 
 ADD sources.list /etc/apt/sources.list
 
