@@ -4,15 +4,15 @@ MAINTAINER NAKAI Ryosuke <nakai@shiguredo.jp>
 
 ENV OTP_VERSION 20.0.2
 
-RUN apt update \
-  && apt install -y \
+RUN apt-get update \
+  && apt-get install -y \
          autoconf \
          git \
          build-essential \
          curl \
          libssl-dev \
          ncurses-dev \
-  && apt clean \
+  && apt-get clean \
   && rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 
 RUN cd /usr/local/src \
