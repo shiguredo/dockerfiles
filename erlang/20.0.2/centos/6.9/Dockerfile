@@ -29,6 +29,7 @@ RUN cd /usr/local/src \
                  --enable-smp-support \
                  --enable-m64-build \
                  --enable-sharing-preserving \
+                 --without-wx \
                  --without-javac \
                  --disable-vm-probes \
                  --disable-megaco-flex-scanner-lineno \
