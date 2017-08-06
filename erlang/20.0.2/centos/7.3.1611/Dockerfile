@@ -37,12 +37,16 @@ RUN cd /usr/local/src \
                  --enable-dirty-schedulers \
                  --enable-smp-support \
                  --enable-m64-build \
+                 --enable-lock-counter \
                  --enable-sharing-preserving \
+                 --enable-native-libs \
+                 --with-ssl=/opt/openssl-${OPENSSL_VERSION} \
                  --without-wx \
                  --without-javac \
+                 --without-odbc \
+                 --disable-sctp \
+                 --disable-dynamic-ssl-lib \
                  --disable-vm-probes \
-                 --disable-megaco-flex-scanner-lineno \
-                 --disable-megaco-reentrant-flex-scanner \
   && make \
   && make install \
   && cd .. \
