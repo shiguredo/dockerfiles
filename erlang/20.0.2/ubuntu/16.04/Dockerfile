@@ -40,7 +40,6 @@ RUN cd /usr/local/src \
                  --enable-sharing-preserving \
                  --enable-native-libs \
                  --with-ssl=/opt/openssl-${OPENSSL_VERSION} \
-                 --without-wx \
                  --without-javac \
                  --without-odbc \
                  --disable-sctp \
