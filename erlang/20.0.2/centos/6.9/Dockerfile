@@ -3,6 +3,7 @@ FROM centos:6.9
 MAINTAINER NAKAI Ryosuke <nakai@shiguredo.jp>
 
 ENV OTP_VERSION 20.0.2
+ENV OPENSSL_VERSION 1.1.0f
 
 RUN yum -y update \
   && yum clean all \
@@ -13,10 +14,27 @@ RUN yum -y update \
          glibc-devel \
          make \
          ncurses-devel \
-         openssl-devel \
          perl \
          tar \
   && yum clean all
+
+RUN curl -sSL "https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz" \
+    | tar -v -C /usr/local/src -xz \
+  && cd /usr/local/src/openssl-${OPENSSL_VERSION} \
+  && ./config --prefix=/opt/openssl-${OPENSSL_VERSION} \
+  && make \
+  && make install \
+  && cd .. \
+  && rm -rf openssl-${OPENSSL_VERSION}
+
+RUN curl -sSL "https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz" \
+    | tar -v -C /usr/local/src -xz \
+  && cd /usr/local/src/openssl-${OPENSSL_VERSION} \
+  && ./config --prefix=/opt/openssl-${OPENSSL_VERSION} \
+  && make \
+  && make install \
+  && cd .. \
+  && rm -rf openssl-${OPENSSL_VERSION}
 
 RUN cd /usr/local/src \
   && git clone -b OTP-${OTP_VERSION} https://github.com/erlang/otp.git \
@@ -28,12 +46,16 @@ RUN cd /usr/local/src \
                  --enable-dirty-schedulers \
                  --enable-smp-support \
                  --enable-m64-build \
+                 --enable-lock-counter \
                  --enable-sharing-preserving \
+                 --enable-native-libs \
+                 --with-ssl=/opt/openssl-${OPENSSL_VERSION} \
                  --without-wx \
                  --without-javac \
+                 --without-odbc \
+                 --disable-sctp \
+                 --disable-dynamic-ssl-lib \
                  --disable-vm-probes \
-                 --disable-megaco-flex-scanner-lineno \
-                 --disable-megaco-reentrant-flex-scanner \
   && make \
   && make install \
   && cd .. \
