@@ -2,7 +2,7 @@ FROM arm64v8/ubuntu:16.04
 
 MAINTAINER NAKAI Ryosuke <nakai@shiguredo.jp>
 
-ENV OTP_VERSION 20.0.2
+ENV OTP_VERSION 20.0.4
 ENV OPENSSL_VERSION 1.1.0f
 
 RUN apt-get update \
