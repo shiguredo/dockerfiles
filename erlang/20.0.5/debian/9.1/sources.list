@@ -1,0 +1,5 @@
+deb  http://ftp.jp.debian.org/debian/ stretch main
+deb-src  http://ftp.jp.debian.org/debian stretch main
+
+deb  http://ftp.jp.debian.org/debian stretch-updates main
+deb-src  http://ftp.jp.debian.org/debian stretch-updates main
