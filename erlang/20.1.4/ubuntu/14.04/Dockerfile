@@ -3,7 +3,7 @@ FROM ubuntu:14.04
 MAINTAINER NAKAI Ryosuke <nakai@shiguredo.jp>
 
 ENV OTP_VERSION 20.1.4
-ENV OPENSSL_VERSION 1.1.0f
+ENV OPENSSL_VERSION 1.1.0g
 
 ADD sources.list /etc/apt/sources.list
 
