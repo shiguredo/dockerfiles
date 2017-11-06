@@ -28,8 +28,9 @@ RUN curl -sSL "https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz"
   && rm -rf openssl-${OPENSSL_VERSION}
 
 RUN cd /usr/local/src \
-  && git clone -b OTP-${OTP_VERSION} https://github.com/erlang/otp.git \
+  && git clone https://github.com/erlang/otp.git \
   && cd /usr/local/src/otp \
+  && git checkout OTP-${OTP_VERSION} \
   && ./otp_build autoconf \
   && ./configure --prefix=/opt/erlang-${OTP_VERSION} \
                  --enable-kernel-poll \
