@@ -1,6 +1,6 @@
 FROM ubuntu:16.04
 
-MAINTAINER NAKAI Ryosuke <nakai@shiguredo.jp>
+LABEL maintainer "nakai@shiguredo.jp"
 
 ENV OTP_VERSION 20.2.2
 ENV OPENSSL_VERSION 1.1.0g
