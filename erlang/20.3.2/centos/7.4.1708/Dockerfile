@@ -3,7 +3,7 @@ FROM centos:7.4.1708
 LABEL maintainer="nakai@shiguredo.jp"
 
 ENV OTP_VERSION 20.3.2
-ENV OPENSSL_VERSION 1.1.0g
+ENV OPENSSL_VERSION 1.1.0h
 
 RUN yum -y update \
   && yum clean all \
