@@ -1,5 +1,7 @@
 FROM circleci/python:3.6-stretch
 
+LABEL maintainer="namao.takeshi@gmail.com"
+
 RUN sudo apt-get update \
   && sudo apt-get install -y \
          groff-base \
