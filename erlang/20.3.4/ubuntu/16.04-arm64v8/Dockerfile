@@ -19,7 +19,7 @@ RUN curl -sSL "https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz"
     | tar -v -C /usr/local/src -xz \
   && cd /usr/local/src/openssl-${OPENSSL_VERSION} \
   && ./config --prefix=/opt/openssl-${OPENSSL_VERSION} no-afalgeng \
-  && make \
+  && make -j \
   && make install \
   && cd .. \
   && rm -rf openssl-${OPENSSL_VERSION}
@@ -42,7 +42,7 @@ RUN cd /usr/local/src \
                  --disable-sctp \
                  --disable-dynamic-ssl-lib \
                  --disable-vm-probes \
-  && make \
+  && make -j \
   && make install \
   && cd .. \
   && rm -rf otp_src_${OTP_VERSION}
