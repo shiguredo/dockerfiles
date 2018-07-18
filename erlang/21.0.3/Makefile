@@ -1,15 +1,15 @@
-.PHONY: all centos-6.9 centos-7.4.1708 ubuntu-14.04 ubuntu-16.04 ubuntu-18.04
+.PHONY: all centos-6.9 centos-7.5.1804 ubuntu-14.04 ubuntu-16.04 ubuntu-18.04
 
 ERL_VERSION=21.0.1
 
-all: centos-6.9 centos-7.4.1708 ubuntu-14.04 ubuntu-16.04 ubuntu-18.04
+all: centos-6.9 centos-7.5.1804 ubuntu-14.04 ubuntu-16.04 ubuntu-18.04
 
 centos-6.9:
 	docker build --no-cache -t shiguredo/erlang:otp-${ERL_VERSION}-$@ -f centos/6.9/Dockerfile .
 	docker push shiguredo/erlang:otp-${ERL_VERSION}-$@
 
-centos-7.4.1708:
-	docker build --no-cache -t shiguredo/erlang:otp-${ERL_VERSION}-$@ -f centos/7.4.1708/Dockerfile .
+centos-7.5.1804:
+	docker build --no-cache -t shiguredo/erlang:otp-${ERL_VERSION}-$@ -f centos/7.5.1804/Dockerfile .
 	docker push shiguredo/erlang:otp-${ERL_VERSION}-$@
 
 ubuntu-14.04:
