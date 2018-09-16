@@ -3,7 +3,7 @@ FROM ubuntu:16.04
 LABEL maintainer="nakai@shiguredo.jp"
 
 ENV OTP_VERSION 21.0.9
-ENV OPENSSL_VERSION 1.1.0i
+ENV OPENSSL_VERSION 1.1.1
 
 ADD sources.list /etc/apt/sources.list
 
