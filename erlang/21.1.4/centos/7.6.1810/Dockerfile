@@ -1,9 +1,9 @@
-FROM centos:7.5.1804
+FROM centos:7.6.1810
 
 LABEL maintainer="nakai@shiguredo.jp"
 
 ENV OTP_VERSION 21.1.4
-ENV OPENSSL_VERSION 1.1.1
+ENV OPENSSL_VERSION 1.1.1a
 
 RUN yum -y update \
   && yum clean all \
