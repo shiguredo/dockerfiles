@@ -1,6 +1,6 @@
 .PHONY: all centos-6.9 centos-7.5.1804 ubuntu-14.04 ubuntu-16.04 ubuntu-18.04
 
-ERL_VERSION=21.1.4
+ERL_VERSION=21.2
 
 all: centos-6.9 centos-7.5.1804 ubuntu-14.04 ubuntu-16.04 ubuntu-18.04
 

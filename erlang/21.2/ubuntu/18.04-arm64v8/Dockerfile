@@ -2,7 +2,7 @@ FROM arm64v8/ubuntu:18.04
 
 LABEL maintainer="nakai@shiguredo.jp"
 
-ENV OTP_VERSION 21.1.4
+ENV OTP_VERSION 21.2
 ENV OPENSSL_VERSION 1.1.0j
 
 RUN apt-get update \
