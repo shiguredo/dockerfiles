@@ -5,13 +5,13 @@ ERL_VERSION=21.2
 all: centos-7.6.1810 ubuntu-16.04 ubuntu-18.04
 
 centos-7.6.1810:
-	docker build --no-cache -t shiguredo/erlang:otp-${ERL_VERSION}-$@ -f centos/7.6.1810/Dockerfile .
+	cd centos/7.6.1810 && docker build --no-cache -t shiguredo/erlang:otp-${ERL_VERSION}-$@ .
 	docker push shiguredo/erlang:otp-${ERL_VERSION}-$@
 
 ubuntu-16.04:
-	docker build --no-cache -t shiguredo/erlang:otp-${ERL_VERSION}-$@ -f ubuntu/16.04/Dockerfile .
+	cd ubuntu/16.04 && docker build --no-cache -t shiguredo/erlang:otp-${ERL_VERSION}-$@ .
 	docker push shiguredo/erlang:otp-${ERL_VERSION}-$@
 
 ubuntu-18.04:
-	docker build --no-cache -t shiguredo/erlang:otp-${ERL_VERSION}-$@ -f ubuntu/18.04/Dockerfile .
+	cd ubuntu/18.04 && docker build --no-cache -t shiguredo/erlang:otp-${ERL_VERSION}-$@ .
 	docker push shiguredo/erlang:otp-${ERL_VERSION}-$@
