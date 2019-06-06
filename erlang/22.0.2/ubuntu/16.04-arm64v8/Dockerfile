@@ -30,15 +30,14 @@ RUN cd /usr/local/src \
   && ./otp_build autoconf \
   && ./configure --prefix=/opt/erlang-${OTP_VERSION} \
                  --enable-kernel-poll \
-                 --enable-hipe \
                  --enable-dirty-schedulers \
                  --enable-smp-support \
-                 --enable-lock-counter \
                  --enable-sharing-preserving \
                  --enable-native-libs \
                  --with-ssl=/opt/openssl-${OPENSSL_VERSION} \
                  --without-javac \
                  --without-odbc \
+                 --disable-hipe \
                  --disable-sctp \
                  --disable-dynamic-ssl-lib \
                  --disable-vm-probes \
