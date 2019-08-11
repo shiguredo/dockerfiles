@@ -15,11 +15,6 @@ Dockerfile 置き場
   - 特にディストリビューションに縛りをつけない
   - Erlang/OTP のリリースには追従しない
 
-- `ocaml`
-
-  - OCaml, OPAM 入りイメージ
-  - ディストリビューション、バージョン追従ポリシーは特に無し
-
 - `circleci`
 
   - CircleCI 2.0 用イメージ
