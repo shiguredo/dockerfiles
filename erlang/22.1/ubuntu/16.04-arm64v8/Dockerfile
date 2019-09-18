@@ -32,7 +32,7 @@ RUN cd /usr/local/src \
                  --enable-kernel-poll \
                  --enable-dirty-schedulers \
                  --enable-smp-support \
-                 --enable-sharing-preserving \
+                 --disable-sharing-preserving \
                  --enable-native-libs \
                  --with-ssl=/opt/openssl-${OPENSSL_VERSION} \
                  --without-javac \
