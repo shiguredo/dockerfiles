@@ -5,9 +5,9 @@ LABEL maintainer="nakai@shiguredo.jp"
 ENV OTP_VERSION 22.1.1
 ENV OPENSSL_VERSION 1.1.1d
 
-RUN yum -y update \
-  && yum clean all \
-  && yum -y install \
+RUN dnf -y update \
+  && dnf clean all \
+  && dnf -y install \
          git \
          gcc \
          autoconf \
@@ -16,7 +16,7 @@ RUN yum -y update \
          ncurses-devel \
          perl \
          tar \
-  && yum clean all
+  && dnf clean all
 
 RUN curl -sSL "https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz" \
     | tar -v -C /usr/local/src -xz \
