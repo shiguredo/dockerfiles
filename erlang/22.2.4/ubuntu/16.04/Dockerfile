@@ -2,7 +2,7 @@ FROM ubuntu:16.04
 
 LABEL maintainer="nakai@shiguredo.jp"
 
-ENV OTP_VERSION 22.2.3
+ENV OTP_VERSION 22.2.4
 ENV OPENSSL_VERSION 1.1.1d
 
 ADD sources.list /etc/apt/sources.list

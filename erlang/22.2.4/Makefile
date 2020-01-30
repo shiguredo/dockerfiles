@@ -1,6 +1,6 @@
 .PHONY: all centos-7.7.1908 centos-8.1.1911 ubuntu-16.04 ubuntu-18.04
 
-ERL_VERSION=22.2.3
+ERL_VERSION=22.2.4
 
 all: centos-7.7.1908 centos-8.1.1911 ubuntu-16.04 ubuntu-18.04
 
