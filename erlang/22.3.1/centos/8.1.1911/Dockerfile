@@ -3,7 +3,7 @@ FROM centos:8.1.1911
 LABEL maintainer="nakai@shiguredo.jp"
 
 ENV OTP_VERSION 22.3.1
-ENV OPENSSL_VERSION 1.1.1d
+ENV OPENSSL_VERSION 1.1.1f
 
 RUN dnf -y update \
   && dnf clean all \
