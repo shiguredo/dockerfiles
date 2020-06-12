@@ -3,7 +3,7 @@ FROM arm64v8/ubuntu:18.04
 LABEL maintainer="nakai@shiguredo.jp"
 
 ENV OTP_VERSION 23.0.2
-ENV OPENSSL_VERSION 1.1.0j
+ENV OPENSSL_VERSION 1.1.1j
 
 RUN apt-get update \
   && apt-get install -y \
@@ -11,18 +11,11 @@ RUN apt-get update \
          git \
          build-essential \
          curl \
+         openssl \
+         libssl-dev \
          ncurses-dev \
   && apt-get clean \
   && rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
-
-RUN curl -sSL "https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz" \
-    | tar -v -C /usr/local/src -xz \
-  && cd /usr/local/src/openssl-${OPENSSL_VERSION} \
-  && ./config --prefix=/opt/openssl-${OPENSSL_VERSION} no-afalgeng \
-  && make -j \
-  && make install \
-  && cd .. \
-  && rm -rf openssl-${OPENSSL_VERSION}
 
 RUN cd /usr/local/src \
   && git clone -b OTP-${OTP_VERSION} https://github.com/erlang/otp.git \
@@ -34,12 +27,10 @@ RUN cd /usr/local/src \
                  --enable-smp-support \
                  --disable-sharing-preserving \
                  --enable-native-libs \
-                 --with-ssl=/opt/openssl-${OPENSSL_VERSION} \
                  --without-javac \
                  --without-odbc \
                  --disable-hipe \
                  --disable-sctp \
-                 --disable-dynamic-ssl-lib \
                  --disable-vm-probes \
   && make -j \
   && make install \
