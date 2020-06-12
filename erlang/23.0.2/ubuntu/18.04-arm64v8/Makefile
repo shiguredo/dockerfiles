@@ -1,3 +1,3 @@
 all:
-	docker build -t shiguredo/erlang:otp-21.0.2-ubuntu-18.04-arm64v8 .
-	docker push shiguredo/erlang:otp-21.0.2-ubuntu-18.04-arm64v8
+	docker build -t shiguredo/erlang:otp-23.0.2-ubuntu-18.04-arm64v8 .
+	docker push shiguredo/erlang:otp-23.0.2-ubuntu-18.04-arm64v8
