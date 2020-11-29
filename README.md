@@ -14,8 +14,3 @@ Dockerfile 置き場
   - Erlang/OTP 入りイメージ
   - 特にディストリビューションに縛りをつけない
   - Erlang/OTP のリリースには追従しない
-
-- `circleci`
-
-  - CircleCI 2.0 用イメージ
-  - デプロイ、テストなど用途に応じて追加する
