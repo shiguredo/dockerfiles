@@ -1,13 +1,13 @@
-FROM centos:7.8.2003
+FROM centos:8.3.2011
 
 LABEL maintainer="nakai@shiguredo.jp"
 
 ENV OTP_VERSION 23.1.5
 ENV OPENSSL_VERSION 1.1.1h
 
-RUN yum -y update \
-  && yum clean all \
-  && yum -y install \
+RUN dnf -y update \
+  && dnf clean all \
+  && dnf -y install \
          git \
          gcc \
          autoconf \
@@ -16,7 +16,7 @@ RUN yum -y update \
          ncurses-devel \
          perl \
          tar \
-  && yum clean all
+  && dnf clean all
 
 RUN curl -sSL "https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz" \
     | tar -v -C /usr/local/src -xz \
