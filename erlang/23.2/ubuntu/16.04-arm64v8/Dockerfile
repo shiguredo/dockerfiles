@@ -3,7 +3,7 @@ FROM arm64v8/ubuntu:16.04
 LABEL maintainer="nakai@shiguredo.jp"
 
 ENV OTP_VERSION 23.2
-ENV OPENSSL_VERSION 1.1.1i
+ENV OPENSSL_VERSION 1.1.0k
 
 RUN apt-get update \
   && apt-get install -y \
