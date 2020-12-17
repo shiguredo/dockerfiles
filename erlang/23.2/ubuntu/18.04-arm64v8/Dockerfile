@@ -27,9 +27,7 @@ RUN cd /usr/local/src \
                  --disable-native-libs \
                  --disable-hipe \
                  --disable-sctp \
-                 --disable-dynamic-ssl-lib \
                  --disable-vm-probes \
-                 --with-ssl=/opt/openssl-${OPENSSL_VERSION} \
                  --without-javac \
                  --without-odbc \
   && make -j \
