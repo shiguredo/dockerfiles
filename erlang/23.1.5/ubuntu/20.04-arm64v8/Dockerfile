@@ -3,9 +3,6 @@ FROM arm64v8/ubuntu:20.04
 LABEL maintainer="nakai@shiguredo.jp"
 
 ENV OTP_VERSION 23.1.5
-ENV OPENSSL_VERSION 1.1.1i
-
-# ADD sources.list /etc/apt/sources.list
 
 RUN apt-get update \
   && apt-get install -y \
@@ -13,18 +10,11 @@ RUN apt-get update \
          git \
          build-essential \
          curl \
+         openssl \
+         libssl-dev \
          ncurses-dev \
   && apt-get clean \
   && rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
-
-RUN curl -sSL "https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz" \
-    | tar -v -C /usr/local/src -xz \
-  && cd /usr/local/src/openssl-${OPENSSL_VERSION} \
-  && ./config --prefix=/opt/openssl-${OPENSSL_VERSION} \
-  && make \
-  && make install \
-  && cd .. \
-  && rm -rf openssl-${OPENSSL_VERSION}
 
 RUN cd /usr/local/src \
   && git clone -b OTP-${OTP_VERSION} https://github.com/erlang/otp.git \
@@ -42,7 +32,7 @@ RUN cd /usr/local/src \
                  --with-ssl=/opt/openssl-${OPENSSL_VERSION} \
                  --without-javac \
                  --without-odbc \
-  && make \
+  && make -j \
   && make install \
   && cd .. \
   && rm -rf otp_src_${OTP_VERSION}
