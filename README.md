@@ -8,9 +8,3 @@ Dockerfile 置き場
   - Erlang/OTP 入りイメージ
   - CentOS, Ubuntu の幾つかのバージョン向け
   - Erlang/OTP のリリースに追従していく
-
-- `erlang-one-shot/` 以下
-
-  - Erlang/OTP 入りイメージ
-  - 特にディストリビューションに縛りをつけない
-  - Erlang/OTP のリリースには追従しない
