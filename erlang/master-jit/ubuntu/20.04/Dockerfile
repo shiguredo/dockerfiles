@@ -21,7 +21,7 @@ RUN curl -sSL "https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz"
     | tar -v -C /usr/local/src -xz \
   && cd /usr/local/src/openssl-${OPENSSL_VERSION} \
   && ./config --prefix=/opt/openssl-${OPENSSL_VERSION} \
-  && make \
+  && make -j \
   && make install \
   && cd .. \
   && rm -rf openssl-${OPENSSL_VERSION}
@@ -43,7 +43,7 @@ RUN cd /usr/local/src \
                  --with-ssl=/opt/openssl-${OPENSSL_VERSION} \
                  --without-javac \
                  --without-odbc \
-  && make \
+  && make -j \
   && make install \
   && cd .. \
   && rm -rf otp

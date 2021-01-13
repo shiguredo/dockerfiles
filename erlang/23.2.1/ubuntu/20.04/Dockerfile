@@ -42,10 +42,10 @@ RUN cd /usr/local/src \
                  --with-ssl=/opt/openssl-${OPENSSL_VERSION} \
                  --without-javac \
                  --without-odbc \
-  && make \
+  && make -j \
   && make install \
   && cd .. \
-  && rm -rf otp_src_${OTP_VERSION}
+  && rm -rf otp
 
 ENV PATH /opt/erlang-${OTP_VERSION}/bin:$PATH
 
