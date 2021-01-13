@@ -2,8 +2,8 @@ FROM ubuntu:20.04
 
 LABEL maintainer="nakai@shiguredo.jp"
 
-ENV OTP_VERSION 23.2.1
 ENV OPENSSL_VERSION 1.1.1i
+ENV OTP_VERSION master-jit
 
 # ADD sources.list /etc/apt/sources.list
 
@@ -27,12 +27,13 @@ RUN curl -sSL "https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz"
   && rm -rf openssl-${OPENSSL_VERSION}
 
 RUN cd /usr/local/src \
-  && git clone -b OTP-${OTP_VERSION} https://github.com/erlang/otp.git \
+  && git clone https://github.com/erlang/otp.git \
   && cd /usr/local/src/otp \
   && ./otp_build autoconf \
   && ./configure --prefix=/opt/erlang-${OTP_VERSION} \
                  --enable-kernel-poll \
                  --enable-dirty-schedulers \
+                 --enable-jit \
                  --disable-sharing-preserving \
                  --disable-native-libs \
                  --disable-hipe \
@@ -45,7 +46,7 @@ RUN cd /usr/local/src \
   && make \
   && make install \
   && cd .. \
-  && rm -rf otp_src_${OTP_VERSION}
+  && rm -rf otp
 
 ENV PATH /opt/erlang-${OTP_VERSION}/bin:$PATH
 

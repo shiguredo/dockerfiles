@@ -1,6 +1,6 @@
 .PHONY: all ubuntu-20.04
 
-ERL_VERSION=master-20210113-jit
+ERL_VERSION=master-jit-$(date "+%Y%m%d")
 
 all: ubuntu-20.04
 
