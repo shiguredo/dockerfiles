@@ -2,7 +2,7 @@ FROM centos:7.9.2009
 
 LABEL maintainer="nakai@shiguredo.jp"
 
-ENV OTP_VERSION 23.2.1
+ENV OTP_VERSION 23.2.2
 ENV OPENSSL_VERSION 1.1.1i
 
 RUN yum -y update \

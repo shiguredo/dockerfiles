@@ -2,7 +2,7 @@ FROM centos:8.3.2011
 
 LABEL maintainer="nakai@shiguredo.jp"
 
-ENV OTP_VERSION 23.2.1
+ENV OTP_VERSION 23.2.2
 ENV OPENSSL_VERSION 1.1.1i
 
 RUN dnf -y update \

@@ -1,6 +1,6 @@
 .PHONY: all centos-7.9.2009 centos-8.3.2011 rhel-8.3 ubuntu-16.04 ubuntu-18.04 ubuntu-20.04
 
-ERL_VERSION=23.2.1
+ERL_VERSION=23.2.2
 
 all: centos-7.9.2009 centos-8.3.2011 rhel-8.3 ubuntu-16.04 ubuntu-18.04 ubuntu-20.04
 

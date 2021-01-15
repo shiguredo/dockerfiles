@@ -2,7 +2,7 @@ FROM arm64v8/ubuntu:18.04
 
 LABEL maintainer="nakai@shiguredo.jp"
 
-ENV OTP_VERSION 23.2.1
+ENV OTP_VERSION 23.2.2
 
 RUN apt-get update \
   && apt-get install -y \
