@@ -3,7 +3,7 @@ FROM registry.access.redhat.com/ubi7/ubi:7.9
 LABEL maintainer="nakai@shiguredo.jp"
 
 ENV OTP_VERSION 23.2.5
-ENV OPENSSL_VERSION 1.1.1i
+ENV OPENSSL_VERSION 1.1.1j
 
 RUN yum -y update \
   && yum clean all \
