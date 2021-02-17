@@ -20,7 +20,7 @@ RUN curl -sSL "https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz"
   && cd /usr/local/src/openssl-${OPENSSL_VERSION} \
   && ./config --prefix=/opt/openssl-${OPENSSL_VERSION} no-afalgeng \
   && make -j \
-  && make install \
+  && make install_sw \
   && cd .. \
   && rm -rf openssl-${OPENSSL_VERSION}
 

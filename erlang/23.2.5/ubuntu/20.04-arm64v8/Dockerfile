@@ -16,7 +16,6 @@ RUN apt-get update \
   && apt-get clean \
   && rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 
-
 RUN cd /usr/local/src \
   && git clone -b OTP-${OTP_VERSION} https://github.com/erlang/otp.git \
   && cd /usr/local/src/otp \

@@ -14,7 +14,6 @@ RUN dnf -y update \
          glibc-devel \
          make \
          ncurses-devel \
-         perl \
          tar \
   && dnf clean all
 
