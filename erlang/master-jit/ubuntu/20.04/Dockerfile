@@ -2,7 +2,7 @@ FROM ubuntu:20.04
 
 LABEL maintainer="nakai@shiguredo.jp"
 
-ENV OPENSSL_VERSION 1.1.1i
+ENV OPENSSL_VERSION 1.1.1j
 ENV OTP_VERSION master-jit
 
 # ADD sources.list /etc/apt/sources.list
