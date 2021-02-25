@@ -34,7 +34,6 @@ RUN cd /usr/local/src \
   && ./configure --prefix=/opt/erlang-${OTP_VERSION} \
                  --enable-kernel-poll \
                  --enable-dirty-schedulers \
-                 --enable-jit \
                  --disable-sharing-preserving \
                  --disable-native-libs \
                  --disable-hipe \
