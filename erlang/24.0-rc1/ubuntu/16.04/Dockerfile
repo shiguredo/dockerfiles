@@ -1,11 +1,11 @@
-FROM ubuntu:20.04
+FROM ubuntu:16.04
 
 LABEL maintainer="nakai@shiguredo.jp"
 
+ENV OTP_VERSION 24.0-rc1
 ENV OPENSSL_VERSION 1.1.1j
-ENV OTP_VERSION master-jit
 
-# ADD sources.list /etc/apt/sources.list
+ADD sources.list /etc/apt/sources.list
 
 RUN apt-get update \
   && apt-get install -y \
@@ -27,7 +27,7 @@ RUN curl -sSL "https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz"
   && rm -rf openssl-${OPENSSL_VERSION}
 
 RUN cd /usr/local/src \
-  && git clone https://github.com/erlang/otp.git \
+  && git clone -b OTP-${OTP_VERSION} https://github.com/erlang/otp.git \
   && cd /usr/local/src/otp \
   && ./otp_build autoconf \
   && ./configure --prefix=/opt/erlang-${OTP_VERSION} \
