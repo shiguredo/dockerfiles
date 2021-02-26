@@ -6,4 +6,10 @@
   - Erlang/OTP 入りイメージ
   - CentOS, RHEL, Ubuntu の幾つかのバージョン向け
   - Erlang/OTP のリリースに追従していく
-  - master-jit はビルドした日付でイメージを作成
+
+## Erlang/OTP JIT
+
+- CentOS / RHEL は OTP 24 JIT には非対応
+    - GCC が古すぎる
+- Ubuntu arm 版は OTP 24 JIT には非対応
+    - AsmJit が arm 非対応
