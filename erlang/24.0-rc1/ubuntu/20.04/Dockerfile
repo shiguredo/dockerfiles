@@ -5,7 +5,7 @@ LABEL maintainer="nakai@shiguredo.jp"
 ENV OTP_VERSION 24.0-rc1
 ENV OPENSSL_VERSION 1.1.1j
 
-# ADD sources.list /etc/apt/sources.list
+ADD sources.list /etc/apt/sources.list
 
 RUN apt-get update \
   && apt-get install -y \
