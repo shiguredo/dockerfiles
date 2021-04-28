@@ -12,4 +12,3 @@
 - CentOS / RHEL は OTP 24 JIT には非対応
     - GCC が古すぎる
 - Ubuntu arm 版は OTP 24 JIT には非対応
-    - AsmJit が arm 非対応
