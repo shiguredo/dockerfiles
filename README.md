@@ -4,7 +4,10 @@
 
 - `erlang/` 以下
   - Erlang/OTP 入りイメージ
-  - CentOS, RHEL, Ubuntu の幾つかのバージョン向け
+  - CentOS 7.9 / 8.3
+  - RHEL 7.9 / 8.3
+  - Ubuntu 18.04 / 20.04
+  - Ubuntu 20.04 のみ arm64v8 版あり
   - Erlang/OTP のリリースに追従していく
 
 ## Erlang/OTP JIT
