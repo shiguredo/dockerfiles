@@ -16,8 +16,8 @@ rhel-7.9:
 	cd rhel/7.9 && docker build --no-cache -t shiguredo/erlang:otp-${ERL_VERSION}-$@ .
 	docker push shiguredo/erlang:otp-${ERL_VERSION}-$@
 
-rhel-8.3:
-	cd rhel/8.3 && docker build --no-cache -t shiguredo/erlang:otp-${ERL_VERSION}-$@ .
+rhel-8.4:
+	cd rhel/8.4 && docker build --no-cache -t shiguredo/erlang:otp-${ERL_VERSION}-$@ .
 	docker push shiguredo/erlang:otp-${ERL_VERSION}-$@
 
 ubuntu-18.04:
