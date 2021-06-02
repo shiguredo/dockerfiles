@@ -39,7 +39,7 @@ RUN cd /usr/local/src \
                  --with-ssl=/opt/openssl-${OPENSSL_VERSION} \
                  --without-javac \
                  --without-odbc \
-  && make -j \
+  && make \
   && make install \
   && cd .. \
   && rm -rf otp
