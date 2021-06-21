@@ -31,8 +31,6 @@ RUN cd /usr/local/src \
                  --enable-kernel-poll \
                  --enable-dirty-schedulers \
                  --disable-sharing-preserving \
-                 --disable-native-libs \
-                 --disable-hipe \
                  --disable-sctp \
                  --disable-dynamic-ssl-lib \
                  --disable-vm-probes \
