@@ -34,8 +34,6 @@ RUN cd /usr/local/src \
                  --enable-dirty-schedulers \
                  --enable-jit \
                  --disable-sharing-preserving \
-                 --disable-native-libs \
-                 --disable-hipe \
                  --disable-sctp \
                  --disable-dynamic-ssl-lib \
                  --disable-vm-probes \
