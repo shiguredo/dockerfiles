@@ -17,7 +17,6 @@ RUN dnf -y update \
          ncurses-devel \
          perl \
          tar \
-  && scl enable gcc-toolset-10 bash \
   && dnf clean all
 
 RUN curl -sSL "https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz" \
@@ -32,6 +31,7 @@ RUN curl -sSL "https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz"
 RUN cd /usr/local/src \
   && git clone -b OTP-${OTP_VERSION} https://github.com/erlang/otp.git \
   && cd /usr/local/src/otp \
+  && scl enable gcc-toolset-10 bash \
   && ./configure --prefix=/opt/erlang-${OTP_VERSION} \
                  --enable-kernel-poll \
                  --enable-dirty-schedulers \
