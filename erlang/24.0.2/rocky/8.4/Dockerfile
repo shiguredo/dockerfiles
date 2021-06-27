@@ -19,7 +19,7 @@ RUN dnf -y update \
          tar \
   && dnf clean all
 
-SHELL [ "/usr/bin/scl", "enable", "devtoolset-10"]
+SHELL [ "/usr/bin/scl", "enable", "gcc-toolset-10"]
 
 RUN curl -sSL "https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz" \
     | tar -v -C /usr/local/src -xz \
