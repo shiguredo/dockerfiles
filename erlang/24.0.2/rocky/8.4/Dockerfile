@@ -13,9 +13,11 @@ RUN dnf -y update \
          autoconf \
          glibc-devel \
          make \
+         gcc-toolset-10 \
          ncurses-devel \
          perl \
          tar \
+  && scl enable gcc-toolset-10 bash \
   && dnf clean all
 
 RUN curl -sSL "https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz" \
