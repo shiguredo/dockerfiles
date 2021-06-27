@@ -22,6 +22,7 @@ RUN dnf -y update \
 RUN curl -sSL "https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz" \
     | tar -v -C /usr/local/src -xz \
   && cd /usr/local/src/openssl-${OPENSSL_VERSION} \
+  && scl enable gcc-toolset-10 bash \
   && ./config --prefix=/opt/openssl-${OPENSSL_VERSION} \
   && make -j \
   && make install_sw \
