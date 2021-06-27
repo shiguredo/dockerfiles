@@ -19,10 +19,11 @@ RUN dnf -y update \
          tar \
   && dnf clean all
 
+SHELL [ "/usr/bin/scl", "enable", "devtoolset-10"]
+
 RUN curl -sSL "https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz" \
     | tar -v -C /usr/local/src -xz \
   && cd /usr/local/src/openssl-${OPENSSL_VERSION} \
-  && scl enable gcc-toolset-10 bash \
   && ./config --prefix=/opt/openssl-${OPENSSL_VERSION} \
   && make -j \
   && make install_sw \
@@ -32,7 +33,6 @@ RUN curl -sSL "https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz"
 RUN cd /usr/local/src \
   && git clone -b OTP-${OTP_VERSION} https://github.com/erlang/otp.git \
   && cd /usr/local/src/otp \
-  && scl enable gcc-toolset-10 bash \
   && ./configure --prefix=/opt/erlang-${OTP_VERSION} \
                  --enable-kernel-poll \
                  --enable-dirty-schedulers \
