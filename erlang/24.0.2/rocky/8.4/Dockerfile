@@ -1,6 +1,6 @@
 FROM rockylinux/rockylinux:8.4
 
-LABEL maintainer="nakai@shiguredo.jp"
+LABEL maintainer="v@shiguredo.jp"
 
 ENV OTP_VERSION 24.0.2
 ENV OPENSSL_VERSION 1.1.1k

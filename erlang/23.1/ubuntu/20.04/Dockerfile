@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 
-LABEL maintainer="nakai@shiguredo.jp"
+LABEL maintainer="v@shiguredo.jp"
 
 ENV OTP_VERSION 23.1
 ENV OPENSSL_VERSION 1.1.1h

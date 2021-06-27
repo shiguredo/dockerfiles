@@ -1,6 +1,6 @@
 FROM ubuntu:14.04
 
-MAINTAINER NAKAI Ryosuke <nakai@shiguredo.jp>
+MAINTAINER NAKAI Ryosuke <v@shiguredo.jp>
 
 ENV OTP_VERSION 20.1.4
 ENV OPENSSL_VERSION 1.1.0g

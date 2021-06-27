@@ -1,6 +1,6 @@
 FROM centos:7.3.1611
 
-MAINTAINER NAKAI Ryosuke <nakai@shiguredo.jp>
+MAINTAINER NAKAI Ryosuke <v@shiguredo.jp>
 
 ENV OTP_VERSION 19.3.6
 

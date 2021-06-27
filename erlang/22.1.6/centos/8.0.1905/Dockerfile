@@ -1,6 +1,6 @@
 FROM centos:8
 
-LABEL maintainer="nakai@shiguredo.jp"
+LABEL maintainer="v@shiguredo.jp"
 
 ENV OTP_VERSION 22.1.6
 ENV OPENSSL_VERSION 1.1.1d

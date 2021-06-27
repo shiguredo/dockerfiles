@@ -1,6 +1,6 @@
 FROM arm64v8/ubuntu:20.04
 
-LABEL maintainer="nakai@shiguredo.jp"
+LABEL maintainer="v@shiguredo.jp"
 
 ENV OPENSSL_VERSION 1.1.1k
 ENV OTP_VERSION 24.0.2

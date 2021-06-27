@@ -1,6 +1,6 @@
 FROM registry.access.redhat.com/ubi8/ubi:8.3
 
-LABEL maintainer="nakai@shiguredo.jp"
+LABEL maintainer="v@shiguredo.jp"
 
 ENV OTP_VERSION 23.3
 ENV OPENSSL_VERSION 1.1.1k
