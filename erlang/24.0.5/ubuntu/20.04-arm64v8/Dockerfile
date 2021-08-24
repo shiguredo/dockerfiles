@@ -2,7 +2,7 @@ FROM arm64v8/ubuntu:20.04
 
 LABEL maintainer="v@shiguredo.jp"
 
-ENV OPENSSL_VERSION 1.1.1k
+ENV OPENSSL_VERSION 1.1.1l
 ENV OTP_VERSION 24.0.5
 
 RUN apt-get update \

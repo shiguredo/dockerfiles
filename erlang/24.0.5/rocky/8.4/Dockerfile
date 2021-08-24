@@ -3,7 +3,7 @@ FROM rockylinux/rockylinux:8.4
 LABEL maintainer="v@shiguredo.jp"
 
 ENV OTP_VERSION 24.0.5
-ENV OPENSSL_VERSION 1.1.1k
+ENV OPENSSL_VERSION 1.1.1l
 
 RUN dnf -y update \
   && dnf clean all \
