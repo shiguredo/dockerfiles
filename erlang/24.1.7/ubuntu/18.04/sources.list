@@ -1,0 +1,4 @@
+deb http://jp.archive.ubuntu.com/ubuntu bionic main restricted
+deb-src http://jp.archive.ubuntu.com/ubuntu bionic main restricted
+deb http://jp.archive.ubuntu.com/ubuntu bionic-updates main restricted
+deb-src http://jp.archive.ubuntu.com/ubuntu bionic-updates main restricted
