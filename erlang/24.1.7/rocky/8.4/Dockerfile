@@ -1,4 +1,4 @@
-FROM rockylinux/rockylinux:8.4
+FROM rockylinux/rockylinux:8.5
 
 LABEL maintainer="v@shiguredo.jp"
 
