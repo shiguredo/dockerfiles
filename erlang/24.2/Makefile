@@ -1,15 +1,11 @@
-.PHONY: all centos-7.9.2009 centos-8.3.2011 rhel-7.9 rhel-8.5 rocky-8.5 ubuntu-18.04 ubuntu-20.04
+.PHONY: all centos-7.9.2009 rhel-7.9 rhel-8.5 rocky-8.5 ubuntu-18.04 ubuntu-20.04
 
 ERL_VERSION=24.2
 
-all: centos-7.9.2009 centos-8.3.2011 rhel-7.9 rhel-8.5 rocky-8.4 ubuntu-18.04 ubuntu-20.04
+all: centos-7.9.2009 rhel-7.9 rhel-8.5 rocky-8.4 ubuntu-18.04 ubuntu-20.04
 
 centos-7.9.2009:
 	cd centos/7.9.2009 && docker build --no-cache -t shiguredo/erlang:otp-${ERL_VERSION}-$@ .
-	docker push shiguredo/erlang:otp-${ERL_VERSION}-$@
-
-centos-8.3.2011:
-	cd centos/8.3.2011 && docker build --no-cache -t shiguredo/erlang:otp-${ERL_VERSION}-$@ .
 	docker push shiguredo/erlang:otp-${ERL_VERSION}-$@
 
 rhel-7.9:
