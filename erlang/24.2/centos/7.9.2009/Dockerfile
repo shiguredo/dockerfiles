@@ -3,7 +3,7 @@ FROM centos:7.9.2009
 LABEL maintainer="v@shiguredo.jp"
 
 ENV OTP_VERSION 24.2
-ENV OPENSSL_VERSION 3.0.1
+ENV OPENSSL_VERSION 1.1.1m
 
 RUN yum -y update \
   && yum clean all \
