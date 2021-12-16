@@ -3,7 +3,7 @@ FROM centos:7.9.2009
 LABEL maintainer="v@shiguredo.jp"
 
 ENV OTP_VERSION 24.2
-ENV OPENSSL_VERSION 1.1.1m
+ENV OPENSSL_VERSION 3.0.1
 
 RUN yum -y update \
   && yum clean all \
@@ -16,6 +16,7 @@ RUN yum -y update \
          ncurses-devel \
          perl \
          tar \
+         perl \
   && yum clean all
 
 RUN curl -sSL "https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz" \
