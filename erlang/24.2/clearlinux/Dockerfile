@@ -1,28 +1,24 @@
-FROM centos:8.3.2011
+FROM clearlinux:latest
 
 LABEL maintainer="v@shiguredo.jp"
 
 ENV OTP_VERSION 24.2
 ENV OPENSSL_VERSION 3.0.1
 
-RUN dnf -y update \
-  && dnf clean all \
-  && dnf -y install \
+ADD sources.list /etc/apt/sources.list
+
+RUN swupd update \
+  && swupd bundle-add -y \
          git \
-         gcc \
-         autoconf \
-         glibc-devel \
-         make \
-         ncurses-devel \
-         perl \
-         tar \
-  && dnf clean all
+         c-basic \
+         curl \
+         devpkg-ncurses
 
 RUN curl -sSL "https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz" \
     | tar -v -C /usr/local/src -xz \
   && cd /usr/local/src/openssl-${OPENSSL_VERSION} \
   && ./config --prefix=/opt/openssl-${OPENSSL_VERSION} \
-  && make -j \
+  && make \
   && make install_sw \
   && cd .. \
   && rm -rf openssl-${OPENSSL_VERSION}
@@ -33,6 +29,7 @@ RUN cd /usr/local/src \
   && ./configure --prefix=/opt/erlang-${OTP_VERSION} \
                  --enable-kernel-poll \
                  --enable-dirty-schedulers \
+                 --enable-jit \
                  --disable-sharing-preserving \
                  --disable-sctp \
                  --disable-dynamic-ssl-lib \

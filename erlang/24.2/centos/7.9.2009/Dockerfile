@@ -16,6 +16,7 @@ RUN yum -y update \
          ncurses-devel \
          perl \
          tar \
+         perl-IPC-Cmd \
   && yum clean all
 
 RUN curl -sSL "https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz" \
