@@ -5,7 +5,7 @@ LABEL maintainer="v@shiguredo.jp"
 ENV OTP_VERSION 24.2
 ENV OPENSSL_VERSION 3.0.1
 
-ADD sources.list /etc/apt/sources.list
+# ADD sources.list /etc/apt/sources.list
 
 RUN apt-get update \
   && apt-get install -y \
