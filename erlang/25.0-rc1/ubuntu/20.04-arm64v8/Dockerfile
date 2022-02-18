@@ -18,7 +18,7 @@ RUN apt-get update \
 RUN curl -sSL "https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz" \
     | tar -v -C /usr/local/src -xz \
   && cd /usr/local/src/openssl-${OPENSSL_VERSION} \
-  && ./config --prefix=/opt/openssl-${OPENSSL_VERSION} \
+  && ./config --prefix=/opt/openssl-${OPENSSL_VERSION} no-shared \
   && make \
   && make install_sw \
   && cd .. \
@@ -30,6 +30,7 @@ RUN cd /usr/local/src \
   && ./configure --prefix=/opt/erlang-${OTP_VERSION} \
                  --enable-kernel-poll \
                  --enable-dirty-schedulers \
+                 --enable-jit \
                  --disable-sharing-preserving \
                  --disable-sctp \
                  --disable-dynamic-ssl-lib \
