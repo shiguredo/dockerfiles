@@ -1,11 +1,11 @@
-FROM ubuntu:22.04
+FROM ubuntu:20.04
 
 LABEL maintainer="v@shiguredo.jp"
 
 ENV OTP_VERSION 25.0-rc1
-ENV OPENSSL_VERSION 3.0.1
+ENV OPENSSL_VERSION 1.1.1m
 
-# ADD sources.list /etc/apt/sources.list
+ADD sources.list /etc/apt/sources.list
 
 RUN apt-get update \
   && apt-get install -y \
@@ -20,7 +20,7 @@ RUN apt-get update \
 RUN curl -sSL "https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz" \
     | tar -v -C /usr/local/src -xz \
   && cd /usr/local/src/openssl-${OPENSSL_VERSION} \
-  && ./config --prefix=/opt/openssl-${OPENSSL_VERSION} no-module \
+  && ./config --prefix=/opt/openssl-${OPENSSL_VERSION} \
   && make \
   && make install_sw \
   && cd .. \
