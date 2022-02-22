@@ -16,6 +16,7 @@ RUN dnf -y update \
          ncurses-devel \
          tar \
          perl-IPC-Cmd \
+         gcc-toolset-10-toolchain \
   && dnf clean all
 
 RUN curl -sSL "https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz" \
@@ -33,6 +34,7 @@ RUN cd /usr/local/src \
   && ./configure --prefix=/opt/erlang-${OTP_VERSION} \
                  --enable-kernel-poll \
                  --enable-dirty-schedulers \
+                 --enable-jit \
                  --disable-sharing-preserving \
                  --disable-sctp \
                  --disable-dynamic-ssl-lib \
