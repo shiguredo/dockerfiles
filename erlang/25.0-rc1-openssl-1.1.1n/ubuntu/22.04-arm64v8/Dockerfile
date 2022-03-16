@@ -1,11 +1,9 @@
-FROM ubuntu:18.04
+FROM arm64v8/ubuntu:22.04
 
 LABEL maintainer="v@shiguredo.jp"
 
-ENV OTP_VERSION 25.0-rc1
 ENV OPENSSL_VERSION 1.1.1n
-
-ADD sources.list /etc/apt/sources.list
+ENV OTP_VERSION 25.0-rc1
 
 RUN apt-get update \
   && apt-get install -y \
@@ -20,8 +18,8 @@ RUN apt-get update \
 RUN curl -sSL "https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz" \
     | tar -v -C /usr/local/src -xz \
   && cd /usr/local/src/openssl-${OPENSSL_VERSION} \
-  && ./config --prefix=/opt/openssl-${OPENSSL_VERSION} no-shared no-module \
-  && make -j \
+  && ./config --prefix=/opt/openssl-${OPENSSL_VERSION} no-shared \
+  && make \
   && make install_sw \
   && cd .. \
   && rm -rf openssl-${OPENSSL_VERSION}
@@ -40,7 +38,7 @@ RUN cd /usr/local/src \
                  --with-ssl=/opt/openssl-${OPENSSL_VERSION} \
                  --without-javac \
                  --without-odbc \
-  && make -j \
+  && make \
   && make install \
   && cd .. \
   && rm -rf otp

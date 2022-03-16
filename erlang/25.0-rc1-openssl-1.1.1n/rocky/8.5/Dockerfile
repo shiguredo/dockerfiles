@@ -1,21 +1,23 @@
-FROM ubuntu:18.04
+FROM rockylinux/rockylinux:8.5
 
 LABEL maintainer="v@shiguredo.jp"
 
 ENV OTP_VERSION 25.0-rc1
 ENV OPENSSL_VERSION 1.1.1n
 
-ADD sources.list /etc/apt/sources.list
-
-RUN apt-get update \
-  && apt-get install -y \
-         autoconf \
+RUN dnf -y update \
+  && dnf clean all \
+  && dnf -y install \
          git \
-         build-essential \
-         curl \
-         ncurses-dev \
-  && apt-get clean \
-  && rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
+         gcc \
+         autoconf \
+         glibc-devel \
+         make \
+         ncurses-devel \
+         tar \
+         perl-IPC-Cmd \
+         gcc-toolset-10-toolchain \
+  && dnf clean all
 
 RUN curl -sSL "https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz" \
     | tar -v -C /usr/local/src -xz \
