@@ -1,4 +1,4 @@
-.PHONY: all centos-7.9.2009 rocky-8.5 rhel-7.9 rhel-8.5 ubuntu-18.04 ubuntu-20.04 ubuntu-22.04
+.PHONY: all centos-7.9.2009 rhel-7.9 rhel-8.5 ubuntu-18.04 ubuntu-20.04 ubuntu-22.04
 
 ERL_VERSION=25.0-rc1-openssl-3.0.2
 
