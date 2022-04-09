@@ -3,7 +3,7 @@ FROM registry.access.redhat.com/ubi8/ubi:8.5
 LABEL maintainer="v@shiguredo.jp"
 
 ENV OTP_VERSION 24.3.2
-ENV OPENSSL_VERSION 1.1.1m
+ENV OPENSSL_VERSION 1.1.1n
 
 RUN dnf -y update \
   && dnf clean all \
