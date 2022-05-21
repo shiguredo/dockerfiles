@@ -1,4 +1,4 @@
-.PHONY: all centos-7.9.2009 rhel-7.9 rhel-8.6 ubuntu-18.04 ubuntu-20.04 ubuntu-22.04
+.PHONY: all rocky-8.6 centos-7.9.2009 rhel-7.9 rhel-8.6 rhel-9.0.0 ubuntu-18.04 ubuntu-20.04 ubuntu-22.04
 
 ERL_VERSION=25.0-openssl-3.0.3
 
@@ -23,7 +23,6 @@ rhel-8.6:
 rhel-9.0.0:
 	cd rhel/9.0.0 && docker build --no-cache -t shiguredo/erlang:otp-${ERL_VERSION}-$@ .
 	docker push shiguredo/erlang:otp-${ERL_VERSION}-$@
-
 
 ubuntu-18.04:
 	cd ubuntu/18.04 && docker build --no-cache -t shiguredo/erlang:otp-${ERL_VERSION}-$@ .
