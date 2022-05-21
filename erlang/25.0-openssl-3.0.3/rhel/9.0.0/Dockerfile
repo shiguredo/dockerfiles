@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi8/ubi:8.5
+FROM registry.access.redhat.com/ubi9/ubi:9.0.0
 
 LABEL maintainer="v@shiguredo.jp"
 
