@@ -15,7 +15,7 @@ RUN dnf -y update \
          make \
          ncurses-devel \
          tar \
-         perl-IPC-Cmd \
+         perl \
   && dnf clean all
 
 RUN curl -sSL "https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz" \
