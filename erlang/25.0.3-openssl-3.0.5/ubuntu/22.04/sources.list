@@ -1,0 +1,4 @@
+deb http://jp.archive.ubuntu.com/ubuntu focal main restricted
+deb-src http://jp.archive.ubuntu.com/ubuntu focal main restricted
+deb http://jp.archive.ubuntu.com/ubuntu focal-updates main restricted
+deb-src http://jp.archive.ubuntu.com/ubuntu focal-updates main restricted
