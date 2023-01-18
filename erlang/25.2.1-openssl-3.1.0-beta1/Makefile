@@ -1,6 +1,6 @@
 .PHONY: all centos-7.9.2009 rhel-7.9 rhel-8.7 rhel-9.1.0 ubuntu-18.04 ubuntu-20.04 ubuntu-22.04
 
-ERL_VERSION=25.2.1.1-openssl-3.1.0-beta1
+ERL_VERSION=25.2.1-openssl-3.1.0-beta1
 
 all: centos-7.9.2009 rhel-8.7 rhel-9.1.0 ubuntu-18.04 ubuntu-20.04 ubuntu-22.04
 

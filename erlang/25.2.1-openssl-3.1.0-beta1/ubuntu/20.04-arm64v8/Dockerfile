@@ -3,7 +3,7 @@ FROM arm64v8/ubuntu:20.04
 LABEL maintainer="v@shiguredo.jp"
 
 ENV OPENSSL_VERSION 3.1.0-beta1
-ENV OTP_VERSION 25.2.1.1
+ENV OTP_VERSION 25.2.1
 
 RUN apt-get update \
   && apt-get install -y \
