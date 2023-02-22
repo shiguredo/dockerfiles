@@ -33,10 +33,15 @@ ubuntu-22.04-x86_64:
 	docker push shiguredo/erlang:otp-${ERL_VERSION}-$@
 
 ubuntu-20.04-arm64:
-	cde ubuntu/20.04-arm64 && docker build --no-cache -t shiguredo/erlang:otp-${ERL_VERSION}-$@ .
+	cd ubuntu/20.04-arm64 && docker build --no-cache -t shiguredo/erlang:otp-${ERL_VERSION}-$@ .
 	docker push shiguredo/erlang:${ERL_VERSION}-$@
 
 ubuntu-22.04-arm64:
-	cde ubuntu/22.04-arm64 && docker build --no-cache -t shiguredo/erlang:otp-${ERL_VERSION}-$@ .
+	cd ubuntu/22.04-arm64 && docker build --no-cache -t shiguredo/erlang:otp-${ERL_VERSION}-$@ .
 	docker push shiguredo/erlang:${ERL_VERSION}-$@
 
+ubuntu-multi-arch:
+	docker manifest create shiguredo/erlang:${ERL_VERSION}-$@-ubuntu-22.04 \
+		shiguredo/erlang:${ERL_VERSION}-$@-ubuntu-22.04-x86_64 \
+		shiguredo/erlang:${ERL_VERSION}-$@-ubuntu-22.04-arm64v8
+	docker manifest push shiguredo/erlang:${ERL_VERSION}-$@-ubuntu-22.04
