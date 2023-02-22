@@ -5,8 +5,6 @@ LABEL maintainer="v@shiguredo.jp"
 ENV OTP_VERSION 26.0-rc1
 ENV OPENSSL_VERSION 3.1.0-beta1
 
-ADD sources.list /etc/apt/sources.list
-
 RUN apt-get update \
   && apt-get install -y \
          autoconf \
