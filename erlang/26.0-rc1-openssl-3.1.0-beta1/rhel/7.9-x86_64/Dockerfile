@@ -39,6 +39,7 @@ RUN cd /usr/local/src \
                  --disable-dynamic-ssl-lib \
                  --disable-vm-probes \
                  --with-ssl=/opt/openssl-${OPENSSL_VERSION} \
+                 --without-wx \
                  --without-javac \
                  --without-odbc \
   && make -j \
