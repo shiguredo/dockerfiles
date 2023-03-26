@@ -28,7 +28,11 @@ rhel-8.7-x86_64:
 	docker push shiguredo/erlang:otp-${ERL_VERSION}-$@
 
 rhel-9.1-x86_64:
-	cd rhel/9.1-x86_64 && docker build --no-cache -t shiguredo/erlang:otp-${ERL_VERSION}-$@ .
+	cd rhel/9.1-x86_64 && docker buildx build --platform=linux/amd64  --no-cache -t shiguredo/erlang:otp-${ERL_VERSION}-$@ .
+	docker push shiguredo/erlang:otp-${ERL_VERSION}-$@
+
+rhel-9.1-arm64v8:
+	cd rhel/9.1-x86_64 && docker buildx build --platform=linux/arm64 --no-cache -t shiguredo/erlang:otp-${ERL_VERSION}-$@ .
 	docker push shiguredo/erlang:otp-${ERL_VERSION}-$@
 
 ubuntu-20.04-x86_64:
@@ -58,4 +62,10 @@ amazonlinux-multi-arch:
 		shiguredo/erlang:otp-${ERL_VERSION}-amazonlinux-2023-x86_64 \
 		shiguredo/erlang:otp-${ERL_VERSION}-amazonlinux-2023-arm64v8
 	docker manifest push shiguredo/erlang:otp-${ERL_VERSION}-amazonlinux-2023
+
+rhel-multi-arch:
+	docker manifest create shiguredo/erlang:otp-${ERL_VERSION}-rhel-9.1 \
+		shiguredo/erlang:otp-${ERL_VERSION}-rhel-9.1-x86_64 \
+		shiguredo/erlang:otp-${ERL_VERSION}-rhel-9.1-arm64v8
+	docker manifest push shiguredo/erlang:otp-${ERL_VERSION}-rhel-9.1
 
