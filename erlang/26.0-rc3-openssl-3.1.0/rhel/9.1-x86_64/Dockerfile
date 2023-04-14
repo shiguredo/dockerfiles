@@ -44,7 +44,7 @@ RUN curl -sSL "https://github.com/erlang/otp/releases/download/OTP-${OTP_VERSION
   && make -j \
   && make install \
   && cd .. \
-  && rm -rf otp
+  && rm -rf otp_src_${OTP_VERSION}
 
 ENV PATH /opt/erlang-${OTP_VERSION}/bin:$PATH
 
