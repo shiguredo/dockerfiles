@@ -3,7 +3,7 @@ ERL_VERSION=26.0-rc3-openssl-3.1.0
 
 all: x86_64 arm64v8
 
-x86_64: centos-7.9-x86_64 rhel-8.7-x86_64 rhel-9.1.0-x86_64 ubuntu-20.04-x86_64 ubuntu-22.04-x86_64 amazonlinux-2023-x86_64
+x86_64: centos-7.9-x86_64 rhel-8.7-x86_64 rhel-9.1-x86_64 ubuntu-20.04-x86_64 ubuntu-22.04-x86_64 amazonlinux-2023-x86_64
 
 arm64v8: ubuntu-20.04-arm64v8 ubuntu-22.04-arm64v8 amazonlinux-2023-arm64v8
 
