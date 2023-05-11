@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi9/ubi:9.1.0
+FROM docker pull redhat/ubi9:9.2
 
 LABEL maintainer="v@shiguredo.jp"
 
