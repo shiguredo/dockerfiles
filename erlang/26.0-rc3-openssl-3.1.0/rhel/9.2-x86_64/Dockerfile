@@ -1,4 +1,4 @@
-FROM docker pull redhat/ubi9:9.2
+FROM redhat/ubi9:9.2
 
 LABEL maintainer="v@shiguredo.jp"
 
