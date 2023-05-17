@@ -4,6 +4,7 @@
 
 - `erlang/` 以下
   - Erlang/OTP 入りイメージ
+  - AmazonLinux x86_64 / arm64v8
   - CentOS 7 x86_64
   - RHEL 7 / 8 / 9 x86_64
   - Ubuntu 18.04 / 20.04 / 22.04 x86_64
