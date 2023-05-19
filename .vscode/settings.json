@@ -1,5 +1,6 @@
 {
   "[dockerfile]": {
+    "editor.defaultFormatter": null,
     "editor.formatOnSave": false
   }
 }
