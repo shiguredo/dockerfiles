@@ -2,7 +2,7 @@ FROM arm64v8/ubuntu:20.04
 
 LABEL maintainer="v@shiguredo.jp"
 
-ENV OPENSSL_VERSION 3.1.0
+ENV OPENSSL_VERSION 3.1.1
 ENV OTP_VERSION 26.0
 
 RUN <<EOF

@@ -1,5 +1,5 @@
 .PHONY: all centos-7.9-x86_64 rhel-8.8-x86_64 rhel-9.2-x86_64 ubuntu-20.04-x86_64 ubuntu-22.04-x86_64 amazonlinux-2023-x86_64
-ERL_VERSION=26.0-openssl-3.1.0
+ERL_VERSION=26.0-openssl-3.1.1
 
 all: x86_64 arm64v8
 
