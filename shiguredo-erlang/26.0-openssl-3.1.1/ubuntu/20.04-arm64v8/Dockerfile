@@ -21,7 +21,7 @@ RUN <<EOF
   make install_sw
   cd ..
   rm -rf openssl-${OPENSSL_VERSION}
-  EOF
+EOF
 
 RUN <<EOF
   git clone -b shiguredo https://github.com/shiguredo/otp /usr/local/src/otp_src_${OTP_VERSION}
@@ -41,7 +41,7 @@ RUN <<EOF
   make install
   cd ..
   rm -rf otp_src_${OTP_VERSION}
-  EOF
+EOF
 
 ENV PATH /opt/erlang-${OTP_VERSION}/bin:$PATH
 
