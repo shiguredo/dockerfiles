@@ -38,7 +38,6 @@ RUN git clone -b shiguredo https://github.com/shiguredo/otp /usr/local/src/otp_s
                  --disable-dynamic-ssl-lib \
                  --disable-vm-probes \
                  --with-ssl=/opt/openssl-${OPENSSL_VERSION} \
-                 --without-wx \
                  --without-javac \
                  --without-odbc \
   && make -j \
