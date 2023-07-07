@@ -2,7 +2,7 @@ FROM redhat/ubi9:9.2
 
 LABEL maintainer="v@shiguredo.jp"
 
-ENV OTP_VERSION 26.0.1
+ENV OTP_VERSION 26.0.2
 ENV OPENSSL_VERSION 3.1.1
 
 RUN dnf -y update \
