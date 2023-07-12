@@ -26,10 +26,8 @@ RUN yum -y update \
          devtoolset-10 \
   && yum clean all
 
-RUN echo "source scl_source enable devtoolset-10" >> /etc/profile.d/enable_scl.sh
-
-RUN bash -c " \ 
-  curl -sSL "https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz" \
+RUN bash -c "source scl_source enable devtoolset-10; \
+  curl -sSL \"https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz\" \
     | tar -v -C /usr/local/src -xz \
   && cd /usr/local/src/openssl-${OPENSSL_VERSION} \
   && ./config --prefix=/opt/openssl-${OPENSSL_VERSION} no-shared no-module \
@@ -39,7 +37,7 @@ RUN bash -c " \
   && rm -rf openssl-${OPENSSL_VERSION} \
   "
 
-RUN bash -c " \
+RUN bash -c "source scl_source enable devtoolset-10; \
   git clone -b shiguredo https://github.com/shiguredo/otp /usr/local/src/otp_src_${OTP_VERSION} \
   && cd /usr/local/src/otp_src_${OTP_VERSION} \
   && ./configure --prefix=/opt/erlang-${OTP_VERSION} \
@@ -58,6 +56,7 @@ RUN bash -c " \
   && cd .. \
   && rm -rf otp_src_${OTP_VERSION} \
   "
+
 
 ENV PATH /opt/erlang-${OTP_VERSION}/bin:$PATH
 
