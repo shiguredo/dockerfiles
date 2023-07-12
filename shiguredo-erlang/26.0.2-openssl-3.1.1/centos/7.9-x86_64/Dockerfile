@@ -8,6 +8,13 @@ ENV OPENSSL_VERSION 3.1.1
 RUN yum -y update \
   && yum clean all \
   && yum -y install \
+         centos-release-scl \
+  && yum clean all
+
+RUN yum -y update \
+  && yum clean all \
+  && yum -y install \
+         centos-release-scl \
          git \
          gcc \
          autoconf \
@@ -17,7 +24,10 @@ RUN yum -y update \
          perl \
          tar \
          perl-IPC-Cmd \
+         devtoolset-10 \
   && yum clean all
+
+RUN scl enable devtoolset-10 bash
 
 RUN curl -sSL "https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz" \
     | tar -v -C /usr/local/src -xz \
@@ -33,6 +43,7 @@ RUN git clone -b shiguredo https://github.com/shiguredo/otp /usr/local/src/otp_s
   && ./configure --prefix=/opt/erlang-${OTP_VERSION} \
                  --enable-kernel-poll \
                  --enable-dirty-schedulers \
+                 --enable-jit \
                  --disable-sharing-preserving \
                  --disable-sctp \
                  --disable-dynamic-ssl-lib \
