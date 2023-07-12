@@ -14,7 +14,6 @@ RUN yum -y update \
 RUN yum -y update \
   && yum clean all \
   && yum -y install \
-         centos-release-scl \
          git \
          gcc \
          autoconf \
@@ -27,18 +26,19 @@ RUN yum -y update \
          devtoolset-10 \
   && yum clean all
 
-RUN scl enable devtoolset-10 bash
-
-RUN curl -sSL "https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz" \
+RUN scl enable devtoolset-10 bash -c " \ 
+  curl -sSL "https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz" \
     | tar -v -C /usr/local/src -xz \
   && cd /usr/local/src/openssl-${OPENSSL_VERSION} \
   && ./config --prefix=/opt/openssl-${OPENSSL_VERSION} no-shared no-module \
   && make -j \
   && make install_sw \
   && cd .. \
-  && rm -rf openssl-${OPENSSL_VERSION}
+  && rm -rf openssl-${OPENSSL_VERSION} \
+  "
 
-RUN git clone -b shiguredo https://github.com/shiguredo/otp /usr/local/src/otp_src_${OTP_VERSION} \
+RUN scl enable devtoolset-10 bash -c " \
+  git clone -b shiguredo https://github.com/shiguredo/otp /usr/local/src/otp_src_${OTP_VERSION} \
   && cd /usr/local/src/otp_src_${OTP_VERSION} \
   && ./configure --prefix=/opt/erlang-${OTP_VERSION} \
                  --enable-kernel-poll \
@@ -54,7 +54,8 @@ RUN git clone -b shiguredo https://github.com/shiguredo/otp /usr/local/src/otp_s
   && make -j \
   && make install \
   && cd .. \
-  && rm -rf otp_src_${OTP_VERSION}
+  && rm -rf otp_src_${OTP_VERSION} \
+  "
 
 ENV PATH /opt/erlang-${OTP_VERSION}/bin:$PATH
 
