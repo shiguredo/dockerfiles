@@ -38,7 +38,7 @@ RUN bash -c "source scl_source enable devtoolset-10; \
   "
 
 RUN bash -c "source scl_source enable devtoolset-10; \
-  git clone -b shiguredo-OTP-${OTP_VERSION}-https://github.com/shiguredo/otp /usr/local/src/otp_src_${OTP_VERSION} \
+  git clone -b shiguredo-OTP-${OTP_VERSION} https://github.com/shiguredo/otp /usr/local/src/otp_src_${OTP_VERSION} \
   && cd /usr/local/src/otp_src_${OTP_VERSION} \
   && ./configure --prefix=/opt/erlang-${OTP_VERSION} \
                  --enable-kernel-poll \
