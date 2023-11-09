@@ -1,9 +1,9 @@
-.PHONY: all centos-7.9-x86_64 rhel-8.8-x86_64 rhel-9.2-x86_64 ubuntu-20.04-x86_64 ubuntu-22.04-x86_64 amazonlinux-2023-x86_64
+.PHONY: all centos-7.9-x86_64 rhel-8.9-x86_64 rhel-9.2-x86_64 ubuntu-20.04-x86_64 ubuntu-22.04-x86_64 amazonlinux-2023-x86_64
 ERL_VERSION=26.1.2-openssl-3.2.0-beta1
 
 all: x86_64 arm64v8
 
-x86_64: centos-7.9-x86_64 rhel-8.8-x86_64 rhel-9.2-x86_64 ubuntu-20.04-x86_64 ubuntu-22.04-x86_64
+x86_64: centos-7.9-x86_64 rhel-8.9-x86_64 rhel-9.2-x86_64 ubuntu-20.04-x86_64 ubuntu-22.04-x86_64
 
 arm64v8: ubuntu-20.04-arm64v8 ubuntu-22.04-arm64v8
 
@@ -11,8 +11,8 @@ centos-7.9-x86_64:
 	cd centos/7.9-x86_64 && docker buildx build --platform=linux/amd64 --memory=4g --no-cache -t shiguredo/shiguredo-erlang:otp-${ERL_VERSION}-$@ .
 	docker push shiguredo/shiguredo-erlang:otp-${ERL_VERSION}-$@
 
-rhel-8.8-x86_64:
-	cd rhel/8.8-x86_64 && docker buildx build --platform=linux/amd64 --memory=4g --no-cache -t shiguredo/shiguredo-erlang:otp-${ERL_VERSION}-$@ .
+rhel-8.9-x86_64:
+	cd rhel/8.9-x86_64 && docker buildx build --platform=linux/amd64 --memory=4g --no-cache -t shiguredo/shiguredo-erlang:otp-${ERL_VERSION}-$@ .
 	docker push shiguredo/shiguredo-erlang:otp-${ERL_VERSION}-$@
 
 rhel-9.2-x86_64:

@@ -1,4 +1,4 @@
-FROM redhat/ubi9:9.2
+FROM redhat/ubi9:9.3
 
 LABEL maintainer="v@shiguredo.jp"
 
