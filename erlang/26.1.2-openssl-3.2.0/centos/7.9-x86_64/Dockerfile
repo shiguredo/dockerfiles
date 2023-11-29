@@ -38,7 +38,8 @@ RUN bash -c "source scl_source enable devtoolset-10; \
   "
 
 RUN bash -c "source scl_source enable devtoolset-10; \
-  git clone -b OTP-${OTP_VERSION} https://github.com/erlang/otp /usr/local/src/otp_src_${OTP_VERSION} \
+  curl -sSL "https://github.com/erlang/otp/releases/download/OTP-${OTP_VERSION}/otp_src_${OTP_VERSION}.tar.gz" \
+    | tar -v -C /usr/local/src -xz \
   && cd /usr/local/src/otp_src_${OTP_VERSION} \
   && ./configure --prefix=/opt/erlang-${OTP_VERSION} \
                  --enable-kernel-poll \
