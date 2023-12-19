@@ -1,4 +1,4 @@
-FROM redhat/ubi8:8.8
+FROM redhat/ubi9:9.3
 
 LABEL maintainer="v@shiguredo.jp"
 
@@ -15,7 +15,7 @@ RUN dnf -y update \
          make \
          ncurses-devel \
          tar \
-         perl-IPC-Cmd \
+         perl \
   && dnf clean all
 
 RUN curl -sSL "https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz" \
@@ -32,6 +32,7 @@ RUN git clone -b shiguredo-OTP-${OTP_VERSION} https://github.com/shiguredo/otp /
   && ./configure --prefix=/opt/erlang-${OTP_VERSION} \
                  --enable-kernel-poll \
                  --enable-dirty-schedulers \
+                 --enable-jit \
                  --disable-sharing-preserving \
                  --disable-sctp \
                  --disable-dynamic-ssl-lib \
