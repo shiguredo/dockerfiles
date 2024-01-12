@@ -43,12 +43,13 @@ ubuntu-24.04-arm64v8:
 	cd ubuntu/24.04-arm64v8 && docker buildx build --platform=linux/arm64 --memory=4g --no-cache -t shiguredo/shiguredo-erlang:otp-${ERL_VERSION}-$@ .
 	docker push shiguredo/shiguredo-erlang:otp-${ERL_VERSION}-$@
 
-
-ubuntu-multi-arch:
+ubuntu-22.04-multi-arch:
 	docker manifest create shiguredo/shiguredo-erlang:otp-${ERL_VERSION}-ubuntu-22.04 \
 		shiguredo/shiguredo-erlang:otp-${ERL_VERSION}-ubuntu-22.04-x86_64 \
 		shiguredo/shiguredo-erlang:otp-${ERL_VERSION}-ubuntu-22.04-arm64v8
 	docker manifest push shiguredo/shiguredo-erlang:otp-${ERL_VERSION}-ubuntu-22.04
+	
+ubuntu-24.04-multi-arch:
 	docker manifest create shiguredo/shiguredo-erlang:otp-${ERL_VERSION}-ubuntu-24.04 \
 		shiguredo/shiguredo-erlang:otp-${ERL_VERSION}-ubuntu-24.04-x86_64 \
 		shiguredo/shiguredo-erlang:otp-${ERL_VERSION}-ubuntu-24.04-arm64v8
