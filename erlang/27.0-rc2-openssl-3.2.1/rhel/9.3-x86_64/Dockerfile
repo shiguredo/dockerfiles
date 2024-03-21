@@ -30,7 +30,6 @@ RUN curl -sSL "https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz"
 RUN git clone -b OTP-${OTP_VERSION} https://github.com/erlang/otp /usr/local/src/otp_src_${OTP_VERSION} \
   && cd /usr/local/src/otp_src_${OTP_VERSION} \
   && ./configure --prefix=/opt/erlang-${OTP_VERSION} \
-                 --enable-m64-build \
                  --enable-kernel-poll \
                  --enable-dirty-schedulers \
                  --enable-jit \
