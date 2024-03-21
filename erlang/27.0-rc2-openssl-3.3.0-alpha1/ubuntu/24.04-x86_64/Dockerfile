@@ -2,8 +2,8 @@ FROM ubuntu:24.04
 
 LABEL maintainer="v@shiguredo.jp"
 
-ENV OTP_VERSION 27.0-rc2
 ENV OPENSSL_VERSION 3.3.0-alpha1
+ENV OTP_VERSION 27.0-rc2
 
 RUN apt-get update \
   && apt-get install -y \
@@ -27,13 +27,13 @@ RUN curl -sSL "https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz"
 RUN git clone -b OTP-${OTP_VERSION} https://github.com/erlang/otp /usr/local/src/otp_src_${OTP_VERSION} \
   && cd /usr/local/src/otp_src_${OTP_VERSION} \
   && ./configure --prefix=/opt/erlang-${OTP_VERSION} \
+                 --enable-m64-build \
                  --enable-kernel-poll \
                  --enable-dirty-schedulers \
                  --enable-jit \
                  --disable-sharing-preserving \
                  --disable-sctp \
                  --disable-dynamic-ssl-lib \
-                 --disable-vm-probes \
                  --with-ssl=/opt/openssl-${OPENSSL_VERSION} \
                  --without-javac \
                  --without-odbc \
