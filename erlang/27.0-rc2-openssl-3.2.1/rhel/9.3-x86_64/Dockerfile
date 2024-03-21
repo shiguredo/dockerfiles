@@ -22,7 +22,7 @@ RUN curl -sSL "https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz"
     | tar -v -C /usr/local/src -xz \
   && cd /usr/local/src/openssl-${OPENSSL_VERSION} \
   && ./config --prefix=/opt/openssl-${OPENSSL_VERSION} no-shared no-module \
-  && make -j \
+  && make -j4 \
   && make install_sw \
   && cd .. \
   && rm -rf openssl-${OPENSSL_VERSION}
@@ -40,7 +40,7 @@ RUN git clone -b OTP-${OTP_VERSION} https://github.com/erlang/otp /usr/local/src
                  --with-ssl=/opt/openssl-${OPENSSL_VERSION} \
                  --without-javac \
                  --without-odbc \
-  && make -j \
+  && make -j4 \
   && make install \
   && cd .. \
   && rm -rf otp_src_${OTP_VERSION}
