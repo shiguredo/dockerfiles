@@ -1,22 +1,19 @@
-FROM redhat/ubi8:8.9
+FROM arm64v8/ubuntu:20.04
 
 LABEL maintainer="v@shiguredo.jp"
 
+ENV OPENSSL_VERSION 3.2.1
 ENV OTP_VERSION 27.0-rc2
-ENV OPENSSL_VERSION 3.3.0-alpha1
 
-RUN dnf -y update \
-  && dnf clean all \
-  && dnf -y install \
-         git \
-         gcc \
+RUN apt-get update \
+  && apt-get install -y \
          autoconf \
-         glibc-devel \
-         make \
-         ncurses-devel \
-         tar \
-         perl-IPC-Cmd \
-  && dnf clean all
+         git \
+         build-essential \
+         curl \
+         ncurses-dev \
+  && apt-get clean \
+  && rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 
 RUN curl -sSL "https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz" \
     | tar -v -C /usr/local/src -xz \
@@ -33,6 +30,7 @@ RUN git clone -b OTP-${OTP_VERSION} https://github.com/erlang/otp /usr/local/src
                  --enable-m64-build \
                  --enable-kernel-poll \
                  --enable-dirty-schedulers \
+                 --enable-jit \
                  --disable-sharing-preserving \
                  --disable-sctp \
                  --disable-dynamic-ssl-lib \

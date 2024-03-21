@@ -1,8 +1,8 @@
-FROM ubuntu:22.04
+FROM ubuntu:20.04
 
 LABEL maintainer="v@shiguredo.jp"
 
-ENV OPENSSL_VERSION 3.3.0-alpha1
+ENV OPENSSL_VERSION 3.2.1
 ENV OTP_VERSION 27.0-rc2
 
 RUN apt-get update \

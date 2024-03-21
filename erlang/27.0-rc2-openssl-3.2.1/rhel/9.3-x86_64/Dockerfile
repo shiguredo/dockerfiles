@@ -1,19 +1,22 @@
-FROM ubuntu:20.04
+FROM redhat/ubi9:9.3
 
 LABEL maintainer="v@shiguredo.jp"
 
-ENV OPENSSL_VERSION 3.3.0-alpha1
 ENV OTP_VERSION 27.0-rc2
+ENV OPENSSL_VERSION 3.2.1
 
-RUN apt-get update \
-  && apt-get install -y \
-         autoconf \
+RUN dnf -y update \
+  && dnf clean all \
+  && dnf -y install \
          git \
-         build-essential \
-         curl \
-         ncurses-dev \
-  && apt-get clean \
-  && rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
+         gcc \
+         autoconf \
+         glibc-devel \
+         make \
+         ncurses-devel \
+         tar \
+         perl \
+  && dnf clean all
 
 RUN curl -sSL "https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz" \
     | tar -v -C /usr/local/src -xz \
